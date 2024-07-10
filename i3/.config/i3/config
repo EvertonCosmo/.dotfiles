@@ -74,8 +74,8 @@ exec --no-startup-id xautolock -time 7 -locker "systemctl suspend" &
 exec --no-startup-id nm-applet
 
 
-bindsym $mod+Shift+p exec --no-startup-id sh  ~/dual-monitor.sh 
-bindsym $mod+Shift+o exec --no-startup-id sh  ~/turnoff-second-monitor.sh 
+bindsym $mod+Shift+p exec --no-startup-id sh  ~/scripts/dual-monitor.sh 
+bindsym $mod+Shift+o exec --no-startup-id sh  ~/scripts/turnoff-second-monitor.sh 
 bindsym $mod+Shift+i exec --no-startup-id sh  ~/scripts/resume-monitor.sh
 
 # Use pactl to adjust volume in PulseAudio.
