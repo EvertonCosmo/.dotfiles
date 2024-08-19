@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+export PATH=$PATH:/var/lib/flatpak/exports/bin
+export PATH=$PATH:/$HOME/AppImages
+export PATH=$PATH:/$HOME/.local/bin
+dmenu_path | dmenu "$@" -i | ${SHELL:-"/bin/sh"} &
