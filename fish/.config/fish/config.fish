@@ -11,6 +11,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 set -gx TERM xterm-256color
 
+set -g fish_term256 1
+
 set -U fish_user_paths $fish_user_paths ~/.local/share/flatpak/exports/bin /var/lib/flatpak/exports/bin
 
 
