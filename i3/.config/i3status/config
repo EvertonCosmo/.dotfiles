@@ -13,7 +13,7 @@ general {
 
 order += "disk /"
 order += "battery 0"
-order += "load"
+#order += "load"
 order += "volume master"
 order += "tztime local"
 
@@ -41,9 +41,9 @@ tztime local {
         format = "%Y-%m-%d %I:%M(%a)"
 }
 
-load {
-        format = "%1min"
-}
+#load {
+#        format = "%1min"
+#}
 
 disk "/" {
         format = "%avail"
