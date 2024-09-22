@@ -15,7 +15,7 @@ set $mod Mod1
 #exec_always --no-startup-id polybar 
 #exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 #exec_always feh --bg-scale ~/Pictures/wp13498518-4k-anime-room-wallpapers.png
-exec_always feh --bg-scale ~/Pictures/sky-wallpaper.png
+exec_always feh --bg-scale ~/Pictures/wp13498531-4k-anime-room-wallpapers.png
 
 
 
@@ -118,7 +118,8 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec kitty 
+# bindsym $mod+Return exec kitty 
+bindsym $mod+Return exec wezterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
