@@ -6,8 +6,8 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- window navigation
 vim.keymap.set("n", "ss", ":split<Return>", opts)
@@ -81,7 +81,7 @@ end, {})
 vim.keymap.set("n", "<leader>rn", ":IncRename ")
 
 -- format code
-vim.keymap.set("n", "<leader>f", ":Format<CR>")
+-- vim.keymap.set("n", "<leader>f", ":Format<CR>")
 
 vim.keymap.set("n", "<C-n>", function()
 	vim.cmd("Neotree filesystem reveal left toggle")

@@ -1,6 +1,7 @@
 {
     "diagnostics.disable": [
-        "undefined-global"
+        "undefined-global",
+        "duplicate-set-field"
     ],
     "diagnostics.globals": [
         "vim",

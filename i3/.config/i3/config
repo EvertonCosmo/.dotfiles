@@ -98,6 +98,7 @@ exec --no-startup-id nm-applet
 bindsym $mod+Shift+p exec --no-startup-id sh  ~/scripts/dual-monitor.sh 
 bindsym $mod+Shift+o exec --no-startup-id sh  ~/scripts/turnoff-second-monitor.sh 
 bindsym $mod+Shift+i exec --no-startup-id sh  ~/scripts/resume-monitor.sh
+bindsym $mod+Shift+u exec --no-startup-id sh  ~/scripts/monitor.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
