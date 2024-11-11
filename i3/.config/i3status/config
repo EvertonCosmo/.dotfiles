@@ -12,6 +12,7 @@ general {
 }
 
 order += "disk /"
+order += "memory"
 order += "battery 0"
 #order += "load"
 order += "volume master"
@@ -45,6 +46,12 @@ tztime local {
 #        format = "%1min"
 #}
 
+memory {
+        memory_used_method = classical
+        format ="RAM: (%used) / %total" 
+         
+        # format_degraded = "MEMORY: %free"
+}
 disk "/" {
         format = "%avail"
 }
