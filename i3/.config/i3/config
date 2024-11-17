@@ -95,11 +95,6 @@ exec --no-startup-id xautolock -time 7 -locker "systemctl suspend" &
 exec --no-startup-id nm-applet
 
 
-bindsym $mod+Shift+p exec --no-startup-id sh  ~/scripts/dual-monitor.sh 
-bindsym $mod+Shift+o exec --no-startup-id sh  ~/scripts/turnoff-second-monitor.sh 
-bindsym $mod+Shift+i exec --no-startup-id sh  ~/scripts/resume-monitor.sh
-bindsym $mod+Shift+u exec --no-startup-id sh  ~/scripts/monitor.sh
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -260,6 +255,7 @@ bindsym $mod+r mode "resize"
 bar {
 	status_command i3status
 	tray_output primary
+        # tray_output eDP-1-1
 
 
 }
@@ -270,14 +266,19 @@ bar {
 # smart_borders on
 # gaps inner 5px
 # gaps outer 5px
+
+
+### Scripts 
+
 # put monitor on FHD 165 hz 
 exec --no-startup-id  ~/scripts/monitor.sh
 
+bindsym $mod+Shift+p exec --no-startup-id sh  ~/scripts/dual-monitor.sh 
+bindsym $mod+Shift+o exec --no-startup-id sh  ~/scripts/turnoff-second-monitor.sh 
+bindsym $mod+Shift+i exec --no-startup-id sh  ~/scripts/resume-monitor.sh
+bindsym $mod+Shift+u exec --no-startup-id sh  ~/scripts/monitor.sh
 
-# nightlight:
-#exec --no-startup-id nightlight 20:00 23:59 30 >/dev/null 2>&1 &
 
-# Suspend
 bindsym $mod+Shift+period exec systemctl suspend
 
 bindsym $mod+b; exec brave-browser-stable
