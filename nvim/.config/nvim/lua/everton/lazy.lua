@@ -14,20 +14,18 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(
-	{
-		{ import = "everton.plugins" },
-		{ import = "everton.plugins.lsp" },
-		{ import = "everton.plugins.git" },
-		{ import = "everton.plugins.ui" },
+require("lazy").setup({
+	{ import = "everton.plugins" },
+	{ import = "everton.plugins.lsp" },
+	{ import = "everton.plugins.git" },
+	{ import = "everton.plugins.ui" },
+	{ import = "everton.plugins.test" },
+}, {
+	checker = {
+		enabled = true,
+		notify = false,
 	},
-	{
-		checker = {
-			enabled = true,
-			notify = false,
-		},
-		change_detection = {
-			notify = false,
-		},
-	}
-)
+	change_detection = {
+		notify = false,
+	},
+})

@@ -65,7 +65,7 @@ vim.keymap.set(
 )
 -- Terminal
 
-vim.keymap.set("n", "<C-_>", "<cmd>ToggleTerm direction=float<CR>", opts)
+vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", opts)
 
 vim.api.nvim_create_user_command("Clean", function()
 	local current_buf = vim.api.nvim_get_current_buf()
