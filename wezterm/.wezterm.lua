@@ -10,12 +10,15 @@ config.adjust_window_size_when_changing_font_size = false
 
 -- For example, changing the color scheme:
 -- config.color_scheme = "Abernathy"
+config.colors = {
+	cursor_bg = "#f0f0f0",
+}
 config.font = wezterm.font("Comic Code Ligatures")
 -- config.font_size = 12.5
 -- config.font_size = 12.6
 -- config.font_size = 15
 
-config.color_scheme = "Tokyo Night"
+-- config.color_scheme = "Tokyo Night"
 
 config.enable_tab_bar = false
 
