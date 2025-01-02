@@ -33,7 +33,7 @@ exec --no-startup-id blueman-applet
 # is used in the bar {} block below.
 #font pango:Comic Code 13
 #font pango: ComicShannsMono 13
-font pango:Comic Code Ligatures 13
+font pango:Comic Code Ligatures 11.5 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
