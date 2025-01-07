@@ -18,6 +18,8 @@ vim.keymap.set("n", "sk", "<C-w>k")
 vim.keymap.set("n", "sj", "<C-w>j")
 vim.keymap.set("n", "sl", "<C-w>l")
 
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>")
 
 -- Get out Q
@@ -82,7 +84,7 @@ vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quic
 
 -- Terminal
 
-vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", opts)
+vim.keymap.set("n", "<C-x>", "<cmd>ToggleTerm direction=float<CR>", opts)
 
 vim.api.nvim_create_user_command("Clean", function()
 	local current_buf = vim.api.nvim_get_current_buf()
@@ -100,7 +102,7 @@ vim.keymap.set("n", "<leader>rn", ":IncRename ")
 -- format code
 -- vim.keymap.set("n", "<leader>f", ":Format<CR>")
 
-vim.keymap.set("n", "<C-n>", function()
+vim.keymap.set("n", "<C-i>", function()
 	vim.cmd("Neotree filesystem reveal left toggle")
 	vim.g.use_image_nvim = true
 end, { silent = true })
