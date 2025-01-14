@@ -1,10 +1,12 @@
 return {
 
 	"vuki656/package-info.nvim",
-
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+	},
 	config = function()
 		require("package-info").setup({
-			autostart = false,
+			autostart = true,
 			package_manager = "yarn",
 			colors = {
 				outdated = "#db4b4b",

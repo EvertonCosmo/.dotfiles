@@ -102,7 +102,7 @@ vim.keymap.set("n", "<leader>rn", ":IncRename ")
 -- format code
 -- vim.keymap.set("n", "<leader>f", ":Format<CR>")
 
-vim.keymap.set("n", "<C-i>", function()
+vim.keymap.set("n", "<C-n>", function()
 	vim.cmd("Neotree filesystem reveal left toggle")
 	vim.g.use_image_nvim = true
 end, { silent = true })
