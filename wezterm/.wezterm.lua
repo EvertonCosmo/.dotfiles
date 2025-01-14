@@ -16,7 +16,7 @@ config.colors = {
 config.font = wezterm.font("Comic Code Ligatures")
 -- config.font_size = 12.5
 -- config.font_size = 12.6
--- config.font_size = 15
+config.font_size = 11.5
 
 -- config.color_scheme = "Tokyo Night"
 
