@@ -53,6 +53,8 @@ return {
 					},
 				},
 				formatters_by_ft = {
+					c = { "clang_format" },
+					cpp = { "clang_format" },
 					css = { "biome", "prettier", "stylelint" },
 					go = { "gofmt", "goimports" },
 					html = { "prettier", "htmlbeautifier" },

@@ -27,17 +27,13 @@ return {
 					"cssls",
 					"tailwindcss",
 					"gopls",
+					"clangd",
 				},
 				automatic_installation = true,
 			})
 
 			local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
-			mason_lsp.setup_handlers({
-				function(server_name)
-					lspconfig[server_name].setup({
-						capabilities = default_capabilities,
-					})
-				end,
+			mason_lsp.setup_handlers({ function(server_name) lspconfig[server_name].setup({ capabilities = default_capabilities, }) end,
 
 				-- ["eslint"] = function()
 				--     lspconfig["eslint"].setup({
