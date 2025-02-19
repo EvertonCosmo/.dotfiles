@@ -6,7 +6,7 @@ return {
 	},
 	config = function()
 		require("package-info").setup({
-			autostart = true,
+			autostart = false,
 			package_manager = "yarn",
 			colors = {
 				outdated = "#db4b4b",
