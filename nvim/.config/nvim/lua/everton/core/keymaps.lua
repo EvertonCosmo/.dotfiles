@@ -108,7 +108,7 @@ vim.keymap.set("n", "<C-n>", function()
 end, { silent = true })
 
 function _G.set_terminal_keymaps()
-	vim.keymap.set("t", "<C-i>", [[<C-\><C-n>]], { buffer = 0, noremap = true, silent = true })
+	vim.keymap.set("t", "<C-t>", [[<C-\><C-n>]], { buffer = 0, noremap = true, silent = true })
 	-- vim.api.nvim_buf_set_keymap(0, 't', '<C-[>', [[<C-\><C-n>]], opts)
 end
 
