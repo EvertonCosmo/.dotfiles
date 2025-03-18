@@ -14,38 +14,38 @@ return {
 
 			telescope.setup({
 
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
-					},
-				},
-				package_info = {
-					theme = "dropdown",
-					initial_mode = "normal",
-				},
 				defaults = {
 					file_ignore_patterns = { "node_modules", ".git", "yarn.lock", "dist", "build" },
-					path_display = { "smart" },
+					path_display = { "truncate" },
 					mappings = {
 						i = {
 							["<C-p>"] = actions.move_selection_previous,
 							["<C-n>"] = actions.move_selection_next,
-							["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+							["<C-q>"] = function(prompt_bufnr)
+								actions.smart_send_to_qflist(prompt_bufnr)
+								actions.open_qflist(prompt_bufnr)
+							end,
+						},
+					},
+					pickers = {
+						find_files = {
+							fin_command = { "rg", "--hidden" },
 						},
 					},
 				},
 			})
 
 			telescope.load_extension("fzf")
+			telescope.load_extension("themes")
 			telescope.load_extension("live_grep_args")
 			telescope.load_extension("ui-select")
 
 			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
-			vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-			vim.keymap.set("n", "<leader>fw", builtin.live_grep, {})
+			vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Git Files" })
+			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+			vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = "Live Grep" })
 			vim.keymap.set("n", "<leader><space>", builtin.buffers, {})
-			vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, {})
+			-- vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, {})
 			vim.keymap.set("n", "<leader>?", builtin.oldfiles, {})
 			vim.keymap.set("n", "<leader>gs", builtin.grep_string, {})
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
@@ -55,6 +55,14 @@ return {
 			vim.keymap.set("n", "<leader>fn", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end, { desc = "Search neovim config" })
+
+			vim.keymap.set("n", "<leader>/", function()
+				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+					winblend = 10,
+					previewer = false,
+					layout_config = { width = 0.8 },
+				}))
+			end, { desc = "[/] Fuzzily search in current buffer" })
 		end,
 	},
 	{

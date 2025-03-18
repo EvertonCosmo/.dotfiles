@@ -7,6 +7,16 @@ return {
 			local helpers = require("incline.helpers")
 			local devicons = require("nvim-web-devicons")
 			require("incline").setup({
+				ignore = {
+					floating_wins = false,
+					wintypes = function(winid, wintype)
+						local zen_view = package.loaded["zen-mode.view"]
+						if zen_view and zen_view.is_open() then
+							return winid ~= zen_view.win
+						end
+						return wintype ~= ""
+					end,
+				},
 				window = {
 					padding = 0,
 					margin = { horizontal = 0 },

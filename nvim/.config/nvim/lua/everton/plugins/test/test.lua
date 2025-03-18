@@ -58,11 +58,11 @@ return {
 
 			local neotestjest = require("neotest-jest")({
 				jestCommand = "npm test --",
-				jestConfigFile = "custom.jest.config.ts",
-				env = { CI = true },
-				cwd = function()
-					return vim.fn.getcwd()
-				end,
+				-- jestConfigFile = "custom.jest.config.ts",
+				-- env = { CI = true },
+				-- cwd = function()
+				-- 	return vim.fn.getcwd()
+				-- end,
 			})
 
 			neotestjest.filter_dir = function(name)
