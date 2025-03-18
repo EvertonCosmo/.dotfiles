@@ -16,7 +16,7 @@ config.colors = {
 config.font = wezterm.font("Comic Code Ligatures")
 -- config.font_size = 12.5
 -- config.font_size = 12.6
-config.font_size = 11.5
+config.font_size = 10.5
 
 -- config.color_scheme = "Tokyo Night"
 
@@ -24,7 +24,7 @@ config.enable_tab_bar = false
 
 config.window_padding = {
 	top = 0,
-	left = 5,
+	left = 0,
 	right = 0,
 	bottom = 0,
 }
