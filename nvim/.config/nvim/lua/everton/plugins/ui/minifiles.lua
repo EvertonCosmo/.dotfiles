@@ -10,6 +10,9 @@ return {
 			windows = {
 				preview = true,
 			},
+			options = {
+				use_as_default_explorer = false,
+			},
 		})
 
 		vim.keymap.set("n", "<C-l>", function()
