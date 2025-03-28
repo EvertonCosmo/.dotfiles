@@ -29,6 +29,17 @@ return {
 		})
 	end, ]]
 		config = function()
+			require("neo-tree").setup({
+				filesystem = {
+					filtered_items = {
+						visible = true,
+						hide_dotfiles = true,
+						hide_gitignored = true,
+						hide_hidden = true,
+					},
+				},
+			})
+
 			require("image").setup({
 				backend = "kitty",
 				integrations = {
