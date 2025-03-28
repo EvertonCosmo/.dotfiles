@@ -33,7 +33,10 @@ return {
 			})
 
 			local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
-			mason_lsp.setup_handlers({ function(server_name) lspconfig[server_name].setup({ capabilities = default_capabilities, }) end,
+			mason_lsp.setup_handlers({
+				function(server_name)
+					lspconfig[server_name].setup({ capabilities = default_capabilities })
+				end,
 
 				-- ["eslint"] = function()
 				--     lspconfig["eslint"].setup({
@@ -53,6 +56,7 @@ return {
 				end,
 				["lua_ls"] = function()
 					lspconfig["lua_ls"].setup({
+						capabilities = default_capabilities,
 
 						settings = {
 							Lua = {
