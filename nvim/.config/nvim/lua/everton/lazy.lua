@@ -15,9 +15,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ import = "everton.autocmd" },
 	{ import = "everton.plugins" },
+	{ import = "everton.plugins.ai" },
 	{ import = "everton.plugins.lsp" },
-	{ import = "everton.plugins.git" },
 	{ import = "everton.plugins.ui" },
 	{ import = "everton.plugins.test" },
 }, {
