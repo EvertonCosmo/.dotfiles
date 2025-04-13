@@ -3,7 +3,7 @@ return {
 	cmd = "ZenMode",
 	opts = {
 		window = {
-			width = 120,
+			width = 160,
 		},
 		plugins = {
 			gitsigns = { enabled = true },

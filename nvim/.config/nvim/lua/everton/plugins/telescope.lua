@@ -9,27 +9,35 @@ return {
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		},
 		config = function()
-			local actions = require("telescope.actions")
+			-- local actions = require("telescope.actions")
 			local telescope = require("telescope")
 
 			telescope.setup({
 
 				defaults = {
-					file_ignore_patterns = { "node_modules", ".git", "yarn.lock", "dist", "build" },
-					path_display = { "truncate" },
-					mappings = {
-						i = {
-							["<C-p>"] = actions.move_selection_previous,
-							["<C-n>"] = actions.move_selection_next,
-							["<C-q>"] = function(prompt_bufnr)
-								actions.smart_send_to_qflist(prompt_bufnr)
-								actions.open_qflist(prompt_bufnr)
-							end,
-						},
+					file_ignore_patterns = {
+						"node_modules/.*",
+						".git/.*",
+						"yarn.lock",
+						"dist",
+						"build",
+						"target",
+						".vscode/.*",
 					},
+					path_display = { "smart" },
+					-- mappings = {
+					-- 	i = {
+					-- 		["<C-p>"] = actions.move_selection_previous,
+					-- 		["<C-n>"] = actions.move_selection_next,
+					-- 		["<C-q>"] = function(prompt_bufnr)
+					-- 			actions.smart_send_to_qflist(prompt_bufnr)
+					-- 			actions.open_qflist(prompt_bufnr)
+					-- 		end,
+					-- 	},
+					-- },
 					pickers = {
 						find_files = {
-							fin_command = { "rg", "--hidden" },
+							find_command = { "rg", "--hidden" },
 						},
 					},
 				},
