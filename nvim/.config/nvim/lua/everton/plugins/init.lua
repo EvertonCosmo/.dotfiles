@@ -13,6 +13,7 @@ return {
 
 		opts = {
 			timeout = 10000,
+			background_colour = "#000000",
 		},
 		config = function()
 			-- See https://github.com/neovim/nvim-lspconfig/issues/1931#issuecomment-1297599534
