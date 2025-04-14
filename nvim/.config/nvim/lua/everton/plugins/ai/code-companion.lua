@@ -9,7 +9,7 @@ return {
 	opts = {
 		adapters = {
 			copilot = function()
-				return require("code-companion.adapters").extend("copilot", {
+				return require("codecompanion.adapters").extend("copilot", {
 					autocomplete = false,
 					schema = {
 						model = {

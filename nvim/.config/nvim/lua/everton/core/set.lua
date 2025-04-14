@@ -6,7 +6,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 10
 
 vim.opt.numberwidth = 2
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.signcolumn = "yes"
 
 vim.opt.smartindent = true
@@ -49,4 +49,3 @@ vim.opt.updatetime = 100
 --vim.opt.colorcolumn = "80"
 
 vim.opt.conceallevel = 2
-

@@ -24,6 +24,11 @@ return {
 						"target",
 						".vscode/.*",
 					},
+					layout_config = {
+						horizontal = {
+							width = 0.9
+						}
+					},
 					path_display = { "smart" },
 					-- mappings = {
 					-- 	i = {
@@ -51,10 +56,11 @@ return {
 			vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Git Files" })
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 			vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = "Live Grep" })
+			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope Help tags" })
 			vim.keymap.set("n", "<leader><space>", builtin.buffers, {})
 			-- vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, {})
 			vim.keymap.set("n", "<leader>?", builtin.oldfiles, {})
-			vim.keymap.set("n", "<leader>gs", builtin.grep_string, {})
+			vim.keymap.set("n", "<leader>fs", builtin.grep_string, {})
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
 			vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 			vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todos" })
@@ -67,7 +73,7 @@ return {
 				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 					winblend = 10,
 					previewer = false,
-					layout_config = { width = 0.8 },
+					layout_config = { width = 0.9 },
 				}))
 			end, { desc = "[/] Fuzzily search in current buffer" })
 		end,
