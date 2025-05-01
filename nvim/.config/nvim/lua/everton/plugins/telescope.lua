@@ -43,6 +43,7 @@ return {
 					pickers = {
 						find_files = {
 							find_command = { "rg", "--hidden" },
+							theme = "ivy"
 						},
 					},
 				},
