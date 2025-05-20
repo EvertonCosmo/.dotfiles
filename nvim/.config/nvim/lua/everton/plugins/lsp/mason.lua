@@ -1,13 +1,18 @@
 return {
 
 	{
-		"williamboman/mason.nvim",
+		-- NOTE: investigate why it's not working
+		-- "williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		dependencies = {
 			"j-hui/fidget.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			"neovim/nvim-lspconfig",
 			"b0o/schemastore.nvim",
+			{ "mason-org/mason.nvim",           version = "^1.0.0" },
+			{ "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+
 		},
 
 		config = function()
@@ -62,14 +67,6 @@ return {
 							Lua = {
 								diagnostics = {
 									globals = { "vim" },
-								},
-								workspace = {
-									library = {
-										[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-										[vim.fn.stdpath("config") .. "/lua"] = true,
-									},
-									maxPreload = 10000,
-									preloadFileSize = 10000,
 								},
 								hint = {
 									enable = true,
