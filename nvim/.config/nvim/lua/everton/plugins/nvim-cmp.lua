@@ -54,6 +54,7 @@ return {
 				}),
 
 				sources = cmp.config.sources({
+					-- {name = "copilot", group_index = 2},
 					{ name = "nvim_lsp" },
 					-- { name = "supermaven" },
 					--	{ name = "vsnip" }, -- For vsnip users.
@@ -62,13 +63,24 @@ return {
 					-- { name = 'snippy' }, -- For snippy users.
 					{ name = "path" },
 					{ name = "buffer" },
-					{ name = "npm", keyword_length = 4 },
-					{ name = "conventionalcommits", filetypes = { "gitcommit" } },
+					{ name = "npm",                    keyword_length = 4 },
+					{ name = "conventionalcommits",    filetypes = { "gitcommit" } },
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "go_pkgs" },
 				}, {
 					{ name = "buffer" },
 				}),
+			})
+
+			vim.diagnostic.config({
+				float = {
+					focusable = false,
+					style = "minimal",
+					border = "rounded",
+					source = true,
+					header = "",
+					prefix = "",
+				}
 			})
 		end,
 	},
