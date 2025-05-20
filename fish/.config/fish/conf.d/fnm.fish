@@ -1,3 +1,3 @@
 # fnm
-set PATH "/home/cosmo/.local/share/fnm" $PATH
+set PATH "/home/evertoncosmo/.local/share/fnm" $PATH
 fnm env | source
