@@ -1,5 +1,4 @@
 return {
-
 	{
 		-- NOTE: investigate why it's not working
 		-- "williamboman/mason.nvim",
@@ -10,9 +9,8 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"neovim/nvim-lspconfig",
 			"b0o/schemastore.nvim",
-			{ "mason-org/mason.nvim",           version = "^1.0.0" },
+			{ "mason-org/mason.nvim", version = "^1.0.0" },
 			{ "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
-
 		},
 
 		config = function()
