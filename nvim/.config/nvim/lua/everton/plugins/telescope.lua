@@ -4,7 +4,9 @@ return {
 		branch = "0.1.x", -- or, branch = '0.1.x',
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim",    build = "cmake" },
+
+			"andrew-george/telescope-themes",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "cmake" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		},
@@ -26,8 +28,8 @@ return {
 					},
 					layout_config = {
 						horizontal = {
-							width = 0.9
-						}
+							width = 0.9,
+						},
 					},
 					path_display = { "smart" },
 					-- mappings = {
@@ -43,7 +45,7 @@ return {
 					pickers = {
 						find_files = {
 							find_command = { "rg", "--hidden" },
-							theme = "ivy"
+							theme = "ivy",
 						},
 					},
 				},
@@ -52,6 +54,7 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("live_grep_args")
 			telescope.load_extension("ui-select")
+			telescope.load_extension("themes")
 
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Git Files" })
