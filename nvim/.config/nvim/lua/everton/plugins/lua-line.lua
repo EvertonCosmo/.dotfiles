@@ -1,97 +1,91 @@
---[[ return {
-	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-
-	config = function()
-		require("lualine").setup({
-			options = {
-				theme = "modus-vivendi",
-
-			},
-			sections = {
-				lualine_c = {
-					{
-						"filename",
-						path = 1,
-					},
-				},
-			},
-		})
-	end,
-} ]]
-
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		-- call the setup function with properties to define how our lualine will look
-		require("lualine").setup({
+		local lualine = require("lualine")
+		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+
+		local colors = {
+			color0 = "#092236",
+			color1 = "#ff5874",
+			color2 = "#c3ccdc",
+			color3 = "#1c1e26",
+			color6 = "#a1aab8",
+			color7 = "#828697",
+			color8 = "#ae81ff",
+		}
+		local my_lualine_theme = {
+			replace = {
+				a = { fg = colors.color0, bg = colors.color1, gui = "bold" },
+				b = { fg = colors.color2, bg = colors.color3 },
+			},
+			inactive = {
+				a = { fg = colors.color6, bg = colors.color3, gui = "bold" },
+				b = { fg = colors.color6, bg = colors.color3 },
+				c = { fg = colors.color6, bg = colors.color3 },
+			},
+			normal = {
+				a = { fg = colors.color0, bg = colors.color7, gui = "bold" },
+				b = { fg = colors.color2, bg = colors.color3 },
+				c = { fg = colors.color2, bg = colors.color3 },
+			},
+			visual = {
+				a = { fg = colors.color0, bg = colors.color8, gui = "bold" },
+				b = { fg = colors.color2, bg = colors.color3 },
+			},
+			insert = {
+				a = { fg = colors.color0, bg = colors.color2, gui = "bold" },
+				b = { fg = colors.color2, bg = colors.color3 },
+			},
+		}
+
+		local mode = {
+			"mode",
+			fmt = function(str)
+				-- return ' '
+				-- displays only the first character of the mode
+				return " " .. str
+			end,
+		}
+
+		local diff = {
+			"diff",
+			colored = true,
+			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+			-- cond = hide_in_width,
+		}
+
+		local filename = {
+			"filename",
+			file_status = true,
+			path = 0,
+		}
+
+		local branch = { "branch", icon = { "", color = { fg = "#A6D4DE" } }, "|" }
+
+		lualine.setup({
+			icons_enabled = true,
 			options = {
-				-- Use web devicons if you have a nerdfont installed
-				icons_enabled = true,
-				-- Set the theme to dracula, lualine documentation has other themes available as well
-				theme = "modus-vivendi",
-				-- Separate components of lua line with chevrons
-				component_separators = { left = "", right = "" },
-				-- Separate sections with solid triangles
-				section_separators = { left = "", right = "" },
-				-- disable the status line and winbar
-				disabled_filetypes = {
-					statusline = {},
-					winbar = {},
-				},
-				-- Don't focus lualine on NvimTree
-				ignore_focus = { "NvimTree" },
-				-- Always divide lualine in the middle
-				always_divide_middle = true,
-				-- Disable global status
-				globalstatus = false,
-				-- Refresh every 1000 miliseconds
-				refresh = {
-					statusline = 1000,
-					tabline = 1000,
-					winbar = 1000,
-				},
+				theme = my_lualine_theme,
+				component_separators = { left = "|", right = "|" },
+				section_separators = { left = "|", right = "" },
 			},
-			-- Setup what each lualine section will contain
-			-- sections start at a on the left and go to z on the right
 			sections = {
-				-- display the current mode in section a
-				lualine_a = { "mode" },
-				-- display the current git branch, git differences, and any code diagnostics in section b
-				lualine_b = { "branch", "diff", "diagnostics" },
-				-- display the filename in section c
-				lualine_c = { {
-					"filename",
-					path = 1,
-				}},
-				-- display the file encoding type, os, and filetype in section x
-				lualine_x = { "encoding", "fileformat", "filetype" },
-				-- display where you are at in the file in section y
-				lualine_y = { "progress" },
-				-- display exact location of the cursor in section z
-				lualine_z = { "location" },
+				lualine_a = { mode },
+				lualine_b = { branch },
+				lualine_c = { diff, filename },
+				lualine_x = {
+					{
+						lazy_status.updates,
+						cond = lazy_status.has_updates,
+						color = { fg = "#ff9e64" },
+					},
+					-- { "encoding",},
+					-- { "fileformat" },
+					{ "filetype" },
+					{ "copilot" },
+				},
 			},
-			-- Setup what each section will contain in inactive buffers
-			inactive_sections = {
-				-- display nothing in sections a and b
-				lualine_a = {},
-				lualine_b = {},
-				-- display the file name in section c
-				lualine_c = { "filename" },
-				-- display the exact location of the cursor in section x
-				lualine_x = { "location" },
-				-- display nothing in sections y and z
-				lualine_y = {},
-				lualine_z = {},
-			},
-			-- Use default values for tabline, winbar, inactive winbar and extensions
-			tabline = {},
-			winbar = {},
-			inactive_winbar = {},
-			extensions = {},
 		})
 	end,
 }

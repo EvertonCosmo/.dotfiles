@@ -17,5 +17,6 @@ return {
 		vim.keymap.set("n", "<leader>gp", function()
 			vim.cmd.Gitsigns("preview_hunk")
 		end, { desc = "Preview hunk" })
+
 	end,
 }

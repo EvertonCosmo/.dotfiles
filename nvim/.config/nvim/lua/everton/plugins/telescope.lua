@@ -4,19 +4,19 @@ return {
 		branch = "0.1.x", -- or, branch = '0.1.x',
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-
 			"andrew-george/telescope-themes",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "cmake" },
+			"nvim-tree/nvim-web-devicons",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		},
 		config = function()
-			-- local actions = require("telescope.actions")
+			local actions = require("telescope.actions")
 			local telescope = require("telescope")
 
 			telescope.setup({
-
 				defaults = {
+					path_display = { "smart" },
 					file_ignore_patterns = {
 						"node_modules/.*",
 						".git/.*",
@@ -31,8 +31,24 @@ return {
 							width = 0.9,
 						},
 					},
-					path_display = { "smart" },
+					mappings = {
+						i = {
+							["<C-k>"] = actions.move_selection_previous,
+							["<C-j>"] = actions.move_selection_next,
+						},
+					},
+					extensions = {
+						themes = {
+							enable_previewer = true,
+							enable_live_preview = true,
+							persist = {
+								enabled = true,
+								path = vim.fn.stdpath("config") .. "/lua/colorscheme.lua",
+							},
+						},
+					},
 					-- mappings = {
+
 					-- 	i = {
 					-- 		["<C-p>"] = actions.move_selection_previous,
 					-- 		["<C-n>"] = actions.move_selection_next,
@@ -44,7 +60,7 @@ return {
 					-- },
 					pickers = {
 						find_files = {
-							find_command = { "rg", "--hidden" },
+							find_command = { "rg", "--hidden", "--smart-case" },
 							theme = "ivy",
 						},
 					},
@@ -68,6 +84,13 @@ return {
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
 			vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 			vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todos" })
+			--  telescope themes keymap
+			vim.keymap.set(
+				"n",
+				"<leader>ths",
+				"<cmd>Telescope themes<CR>",
+				{ desc = "Telescope themes", noremap = true, silent = true }
+			)
 
 			vim.keymap.set("n", "<leader>fn", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })

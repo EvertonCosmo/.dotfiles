@@ -17,9 +17,10 @@ return {
 		end, { desc = "Peek Fold" })
 
 		require("ufo").setup({
-			provider_selector = function(bufnr, filetype, buftype)
-				return { "lsp", "indent" }
+			provider_selector = function(_, _, _)
+				return { "treesitter", "indent" }
 			end,
+			open_fold_hl_timeout = 0
 		})
 	end,
 }

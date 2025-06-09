@@ -1,12 +1,17 @@
 return {
 	"ThePrimeagen/harpoon",
-	event = "VeryLazy",
+	enabled = true,
 	branch = "harpoon2",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local harpoon = require("harpoon")
 
-		harpoon:setup()
+		harpoon:setup({
+			global_settings = {
+				save_on_toggle = true,
+				save_on_change = true,
+			},
+		})
 		vim.keymap.set("n", "<leader>A", function()
 			harpoon:list():prepend()
 		end)
@@ -21,7 +26,7 @@ return {
 				harpoon:list():select(1)
 			end)
 
-			vim.keymap.set("n", "<C-t>", function()
+			vim.keymap.set("n", "<C-i>", function()
 				harpoon:list():select(2)
 			end)
 
@@ -36,7 +41,7 @@ return {
 			vim.keymap.set("n", "<leader><C-h>", function()
 				harpoon:list():replace_at(1)
 			end)
-			vim.keymap.set("n", "<leader><C-t>", function()
+			vim.keymap.set("n", "<leader><C-i>", function()
 				harpoon:list():replace_at(2)
 			end)
 			vim.keymap.set("n", "<leader><C-b>", function()

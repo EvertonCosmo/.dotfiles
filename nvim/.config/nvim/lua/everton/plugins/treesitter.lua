@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = "BufEnter",
+	event = { "BufReadPre", "BufNewFile" },
 	build = ":TSUpdate",
 	config = function()
 		local configs = require("nvim-treesitter.configs")
@@ -38,6 +38,7 @@ return {
 				},
 			},
 
+			additional_vim_regex_highlighting = false,
 			auto_install = true,
 			sync_install = false,
 			highlight = { enable = true },

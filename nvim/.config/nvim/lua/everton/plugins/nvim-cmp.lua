@@ -72,16 +72,16 @@ return {
 				}),
 			})
 
-			vim.diagnostic.config({
-				float = {
-					focusable = false,
-					style = "minimal",
-					border = "rounded",
-					source = true,
-					header = "",
-					prefix = "",
-				}
-			})
+			-- vim.diagnostic.config({
+			-- 	float = {
+			-- 		focusable = false,
+			-- 		style = "minimal",
+			-- 		border = "rounded",
+			-- 		source = true,
+			-- 		header = "",
+			-- 		prefix = "",
+			-- 	}
+			-- })
 		end,
 	},
 }

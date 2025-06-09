@@ -55,6 +55,7 @@ return {
 				["html"] = function()
 					lspconfig["html"].setup({
 						capabilities = default_capabilities,
+						filetypes = { "html", "typescriptreact", "javascriptreact" },
 					})
 				end,
 				["lua_ls"] = function()
@@ -76,7 +77,7 @@ return {
 
 				["ts_ls"] = function()
 					lspconfig["ts_ls"].setup({
-
+						capabilities = default_capabilities,
 						settings = {
 							typescript = {
 								inlayHints = {
@@ -104,6 +105,10 @@ return {
 							},
 						},
 						init_options = {
+							preferences = {
+								includeCompletionsWithSnippetText = true,
+								includeCompletionsForImportStatements = true,
+							},
 							plugins = {
 								{
 									name = "typescript-styled-plugin",
@@ -128,7 +133,7 @@ return {
 
 				["gopls"] = function()
 					lspconfig["gopls"].setup({
-						-- capabilities = default_capabilities,
+						capabilities = default_capabilities,
 						settings = {
 							gopls = {
 								hints = {

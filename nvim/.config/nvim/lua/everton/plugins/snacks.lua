@@ -6,5 +6,6 @@ return {
 		bigfile = { enabled = true },
 		quickfile = { enabled = true },
 		statuscolumn = { enabled = true },
+		scroll = { enabled = false },
 	},
 }

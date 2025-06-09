@@ -56,6 +56,7 @@ return {
 					c = { "clang_format" },
 					cpp = { "clang_format" },
 					css = { "biome", "prettier", "stylelint" },
+					less = { "prettier", "stylelint" },
 					go = { "gofmt", "goimports" },
 					html = { "prettier", "htmlbeautifier" },
 					javascript = { "biome", "prettier" },

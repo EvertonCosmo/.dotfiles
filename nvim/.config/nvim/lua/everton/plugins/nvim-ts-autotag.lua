@@ -1,8 +1,23 @@
 return {
 	"windwp/nvim-ts-autotag",
-	event = "InsertEnter",
-	ft = { "html", "javascript", "typescript", "css", "scss", "vue", "typescriptreact", "javascriptreact" },
+	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	config = function()
-		require("nvim-ts-autotag").setup({})
+		require("nvim-ts-autotag").setup({
+			-- New format configuration
+			autotag = {
+				enable = true,
+				enable_rename = true,
+				enable_close = true,
+				enable_close_on_slash = true,
+				filetypes = {
+					"html",
+					"typescript",
+					"typescriptreact",
+					"vue",
+					"svelte",
+				},
+			},
+		})
 	end,
+	event = "InsertEnter",
 }

@@ -7,6 +7,9 @@ return {
 			local helpers = require("incline.helpers")
 			local devicons = require("nvim-web-devicons")
 			require("incline").setup({
+				hide = {
+					only_win = false,
+				},
 				ignore = {
 					floating_wins = false,
 					wintypes = function(winid, wintype)
