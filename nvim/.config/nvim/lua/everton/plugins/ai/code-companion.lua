@@ -28,46 +28,46 @@ return {
 		config = function()
 			local diff = require("mini.diff")
 			diff.setup({
-				-- Disabled by default
 				source = diff.gen_source.none(),
 			})
 		end,
 	},
-	"olimorris/codecompanion.nvim",
-	dependencies = {
-		"j-hui/fidget.nvim",
-		{ "nvim-lua/plenary.nvim", branch = "master" },
-		"nvim-treesitter/nvim-treesitter",
-	},
-	opts = {
-		extensions = {
-			extensions = {
-				history = {
-					enabled = true,
-					opts = {
-						keymap = "gh",
-						save_chat_keymap = "sc",
-						auto_save = false,
-						auto_generate_title = true,
-						continue_last_chat = true,
-						delete_on_clearing_chat = false,
-						picker = "snacks",
-						enable_logging = false,
-						dir_to_save_chat = vim.fn.stdpath("data") .. "/codecompanion-history",
-					},
-				},
-			},
+	{
+		"olimorris/codecompanion.nvim",
+		dependencies = {
+			"j-hui/fidget.nvim",
+			"ravitemer/codecompanion-history.nvim",
+			{ "nvim-lua/plenary.nvim", branch = "master" },
+			"nvim-treesitter/nvim-treesitter",
 		},
-		adapters = {
-			copilot = function()
-				return require("codecompanion.adapters").extend("copilot", {
-					schema = {
-						model = {
-							default = "claude-sonnet-4",
+		opts = {
+			extensions = {
+					history = {
+						enabled = true,
+						opts = {
+							keymap = "gh",
+							save_chat_keymap = "sc",
+							auto_save = false,
+							auto_generate_title = true,
+							continue_last_chat = true,
+							delete_on_clearing_chat = false,
+							picker = "snacks",
+							enable_logging = false,
+							dir_to_save_chat = vim.fn.stdpath("data") .. "/codecompanion-history",
 						},
 					},
-				})
-			end,
+			},
+			adapters = {
+				copilot = function()
+					return require("codecompanion.adapters").extend("copilot", {
+						schema = {
+							model = {
+								default = "claude-sonnet-4",
+							},
+						},
+					})
+				end,
+			},
 		},
 	},
 }

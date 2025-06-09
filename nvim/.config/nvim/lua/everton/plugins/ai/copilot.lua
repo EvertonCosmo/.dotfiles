@@ -1,5 +1,5 @@
 return {
-	{ "AndreM222/copilot.lua" },
+	{ "AndreM222/copilot-lualine" },
 	"zbirenbaum/copilot.lua",
 	event = "InsertEnter",
 	opts = {
