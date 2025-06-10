@@ -61,9 +61,9 @@ return {
 				end, opts) -- jump to next diagnostic in buffer
 
 				opts.desc = "Show documentation for what is under cursor"
-				keymap.set("n", "K", function()
-					require("pretty_hover").hover()
-				end, opts)
+				-- keymap.set("n", "K", function()
+				-- 	require("pretty_hover").hover()
+				-- end, opts)
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
