@@ -26,7 +26,7 @@ local formatter_data = {
 
 return {
 	{
-		"RRethy/vim-illuminate",
+		"rrethy/vim-illuminate",
 		config = function()
 			require("illuminate")
 		end,
