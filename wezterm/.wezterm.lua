@@ -1,50 +1,60 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
 -- Default is true
--- config.adjust_window_size_when_changing_font_size = false
+-- config.adjust_window_size_when_changing_font_size = true
 
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
 -- config.color_scheme = "Abernathy"
+-- config.colors = {
+-- 	cursor_bg = "#f0f0f0",
+-- }
+
 config.colors = {
 	cursor_bg = "#f0f0f0",
 }
+config.font = wezterm.font("Maple Mono NF")
 -- config.font = wezterm.font("Comic Code Ligatures")
-config.font = wezterm.font("Maple Mono")
 config.webgpu_power_preference = "HighPerformance"
--- config.enable_kitty_graphics = true
--- config.font_size = 12.5
--- config.font_size = 12.6
-config.font_size = 14
-config.line_height = 1.2
--- config.font_rules = {}
--- config.harfbuzz_features = {}
 
-config.window_decorations = "RESIZE"
--- config.color_scheme = "Tokyo Night"
-
-config.enable_tab_bar = false
-
--- config.use_fancy_tab_bar = true
 -- config.font_rules = {
 -- 	{
 -- 		intensity = "Bold",
--- 		italic = true
--- 		intensity = "Half",
 -- 		italic = true,
+-- 		font = wezterm.font({ family = "Maple Mono NF NF", weight = "Bold", style = "Italic" }),
+-- 	},
+-- 	{
+-- 		italic = true,
+-- 		intensity = "Half",
 -- 		font = wezterm.font({ family = "Maple Mono NF", weight = "DemiBold", style = "Italic" }),
 -- 	},
 -- 	{
--- 		intensity = "Normal",
 -- 		italic = true,
+-- 		intensity = "Normal",
 -- 		font = wezterm.font({ family = "Maple Mono NF", style = "Italic" }),
 -- 	},
 -- }
+-- config.color_scheme = "rose-pine"
+
+-- MACOS
+
+-- config.font_size = 14
+-- config.line_height = 1.2
+
+-- LINUX
+
+config.font_size = 11
+config.line_height = 1.2
+
+-- config.window_decorations = "RESIZE"
+-- config.color_scheme = "Tokyo Night"
+config.enable_tab_bar = false
+
+config.enable_kitty_graphics = true
 
 config.window_padding = {
 	top = 0,
@@ -52,6 +62,5 @@ config.window_padding = {
 	right = 0,
 	bottom = 0,
 }
-
 -- and finally, return the configuration to wezterm
 return config
