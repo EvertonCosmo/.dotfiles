@@ -1,10 +1,39 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "cameronr/lualine-pretty-path" },
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
+		local function trunc(start_col, trunc_width, trunc_len, hide_width)
+			return function(str)
+				local win_width = vim.fn.winwidth(0)
+				if hide_width and win_width < hide_width then
+					return ""
+				end
+				if win_width < trunc_width and #str > trunc_len then
+					return str:sub(start_col, trunc_len) .. "..."
+				end
+				return str
+			end
+		end
+		-- Show LSP status, borrowed from Heirline cookbook
+		-- https://github.com/rebelot/heirline.nvim/blob/master/cookbook.md#lsp
+		local function lsp_status_all()
+			local haveServers = false
+			local names = {}
+			for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
+				haveServers = true
+				table.insert(names, server.name)
+			end
+			if not haveServers then
+				return ""
+			end
+			-- if vim.g.custom_lualine_show_lsp_names then
+			return table.concat(names, ",")
+			-- end
+			-- return " "
+		end
 		local colors = {
 			color0 = "#092236",
 			color1 = "#ff5874",
@@ -73,7 +102,23 @@ return {
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { branch },
-				lualine_c = { diff, filename },
+				lualine_c = {
+					diff,
+					{
+						"pretty_path",
+						providers = {
+							default = require("everton/util/pretty_path_harpoon"),
+						},
+						directories = {
+							max_depth = 4,
+						},
+						highlights = {
+							newfile = "LazyProgressDone",
+						},
+						separator = "",
+					},
+				},
+				-- lualine_c = { diff, filename },
 				lualine_x = {
 					{
 						lazy_status.updates,
@@ -84,6 +129,12 @@ return {
 					-- { "fileformat" },
 					{ "filetype" },
 					{ "copilot" },
+					require("everton.util.lualine").cmp_source("supermaven", "󰰣"),
+					{
+						lsp_status_all,
+						fmt = trunc(0, 8, 140, false),
+						separator = "",
+					},
 				},
 			},
 		})

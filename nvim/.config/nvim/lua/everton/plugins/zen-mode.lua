@@ -19,9 +19,9 @@ return {
 		},
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
 	},
-	{
-		"folke/twilight.nvim",
-		cmd = "Twilight",
-		keys = { { "<leader>Z", "<cmd>Twilight<cr>", desc = "Zen Twilight" } },
-	}
+	-- {
+	-- 	"folke/twilight.nvim",
+	-- 	cmd = "Twilight",
+	-- 	keys = { { "<leader>Z", "<cmd>Twilight<cr>", desc = "Zen Twilight" } },
+	-- }
 }
