@@ -1,5 +1,4 @@
 ---@class PrettyPath.BasePlusHarpoonProvider: PrettyPath.Provider
-
 ---@field super PrettyPath.Provider
 
 local M = require("lualine-pretty-path.providers.base"):extend()
