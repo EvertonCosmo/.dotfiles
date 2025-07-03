@@ -49,3 +49,5 @@ vim.opt.updatetime = 100
 --vim.opt.colorcolumn = "80"
 
 vim.opt.conceallevel = 2
+
+vim.g.gui_font_face = "Maple Mono NF"
