@@ -41,21 +41,19 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {
-			extensions = {
-					history = {
-						enabled = true,
-						opts = {
-							keymap = "gh",
-							save_chat_keymap = "sc",
-							auto_save = false,
-							auto_generate_title = true,
-							continue_last_chat = true,
-							delete_on_clearing_chat = false,
-							picker = "snacks",
-							enable_logging = false,
-							dir_to_save_chat = vim.fn.stdpath("data") .. "/codecompanion-history",
-						},
-					},
+			history = {
+				enabled = true,
+				opts = {
+					keymap = "gh",
+					save_chat_keymap = "sc",
+					auto_save = false,
+					auto_generate_title = true,
+					continue_last_chat = true,
+					delete_on_clearing_chat = false,
+					picker = "snacks",
+					enable_logging = false,
+					dir_to_save_chat = vim.fn.stdpath("data") .. "/codecompanion-history",
+				},
 			},
 			adapters = {
 				copilot = function()
