@@ -3,7 +3,7 @@ return {
 	build = "make",
 	opts = {
 		has_breadcrumbs = true,
-		code_font_family = "Comic Code Ligatures",
+		code_font_family = "Maple Mono NF",
 		bg_padding = 0,
 	},
 }
