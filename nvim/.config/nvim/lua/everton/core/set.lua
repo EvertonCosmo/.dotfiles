@@ -50,4 +50,5 @@ vim.opt.updatetime = 100
 
 vim.opt.conceallevel = 2
 
-vim.g.gui_font_face = "Maple Mono NF"
+-- vim.g.gui_font_face = "Maple Mono NF"
+vim.g.gui_font_face = "Comic Code Ligatures Medium"
