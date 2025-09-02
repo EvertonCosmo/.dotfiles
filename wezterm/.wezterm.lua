@@ -18,8 +18,9 @@ config.colors = {
 	cursor_bg = "#f0f0f0",
 }
 -- config.font = wezterm.font("Maple Mono NF")
-config.font = wezterm.font("Comic Code Ligatures Medium")
+config.font = wezterm.font("Comic Code Medium")
 -- config.font = wezterm.font("Comic Mono")
+-- config.font = wezterm.font("Comic Shanns Mono Nerd Font")
 
 config.webgpu_power_preference = "HighPerformance"
 
@@ -51,11 +52,11 @@ config.webgpu_power_preference = "HighPerformance"
 
 -- config.color_scheme = "GruvboxDarkHard"
 -- config.color_scheme = "OxoCarbonDark"
-config.color_scheme = "Oxocarbon Dark (Gogh)"
+-- config.color_scheme = "Oxocarbon Dark (Gogh)"
 -- config.color_scheme = 'Gruvbox Dark (Gogh)'
 -- config.color_scheme = 'Gruvbox dark, hard (base16)'
-config.font_size = 12
-config.line_height = 1.1
+config.font_size = 12.6
+config.line_height = 1.2
 
 -- config.window_decorations = "RESIZE"
 -- config.color_scheme = "Tokyo Night"
