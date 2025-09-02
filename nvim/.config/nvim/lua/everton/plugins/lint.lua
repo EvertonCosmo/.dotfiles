@@ -120,7 +120,6 @@ return {
 
 		lint.linters_by_ft = {
 			html = { "htmlhint" },
-			markdown = { "markdownlint" },
 			go = { "golangcilint" },
 			sh = { "shellcheck" },
 		}
