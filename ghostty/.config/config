@@ -1,0 +1,12 @@
+# This is the configuration file for Ghostty.
+
+background = 000000
+# theme = GruvboxDarkHard
+theme = carbonfox 
+background-opacity = 0.85
+background-blur = false
+confirm-close-surface=false
+gtk-titlebar = false 
+
+font-family ="Comic Code Medium"
+font-size = 11
