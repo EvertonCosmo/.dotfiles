@@ -59,7 +59,7 @@ return {
 		config = function()
 			require("nightfox").setup({
 				options = {
-					transparent = false,
+					transparent = true,
 					terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal
 					dim_inactive = false, -- Non focused panes set to alternative background
 				},

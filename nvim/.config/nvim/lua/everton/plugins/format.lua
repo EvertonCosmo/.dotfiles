@@ -54,10 +54,12 @@ return {
 				},
 				formatters_by_ft = {
 					c = { "clang_format" },
+					dockerfile = { "dockerfmt" },
 					cpp = { "clang_format" },
+					markdown = { "mdformat" },
 					css = { "biome", "prettier", "stylelint" },
 					less = { "prettier", "stylelint" },
-					go = { "gofmt", "goimports" },
+					go = { "gofumpt", "goimports", "goimports-reviser" },
 					html = { "prettier", "htmlbeautifier" },
 					javascript = { "biome", "prettier" },
 					javascriptreact = { "biome", "prettier" },
@@ -72,6 +74,7 @@ return {
 					typescriptreact = { "biome", "prettier" },
 					vue = { "biome", "prettier" },
 					yaml = { "biome", "prettier" },
+					zsh = { "shellcheck" },
 				},
 				-- format_on_save = function(bufnr)
 				--     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

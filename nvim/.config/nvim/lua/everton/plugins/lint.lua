@@ -120,8 +120,9 @@ return {
 
 		lint.linters_by_ft = {
 			html = { "htmlhint" },
-			go = { "golangcilint" },
-			sh = { "shellcheck" },
+			go = { "codespell", "golangcilint" },
+			sh = { "bash", "shellcheck" },
+			zsh = { "shellcheck", "zsh" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
