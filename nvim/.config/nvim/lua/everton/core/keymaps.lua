@@ -20,7 +20,6 @@ vim.keymap.set("n", "sl", "<C-w>l")
 
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
-vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>")
 
 -- Get out Q
 -- vim.keymap.set("n", "Q", "<nop>")
@@ -85,11 +84,6 @@ vim.keymap.set("n", "<leader>rn", ":IncRename ")
 
 -- format code
 -- vim.keymap.set("n", "<leader>f", ":Format<CR>")
-
-vim.keymap.set("n", "<C-n>", function()
-	vim.cmd("Neotree filesystem reveal left toggle")
-	vim.g.use_image_nvim = true
-end, { silent = true })
 
 function _G.set_terminal_keymaps()
 	vim.keymap.set("t", "<C-t>", [[<C-\><C-n>]], { buffer = 0, noremap = true, silent = true })

@@ -64,6 +64,16 @@ return {
 							theme = "ivy",
 						},
 					},
+					vimgrep_arguments = {
+						"rg",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
+						"--hidden",
+					},
 				},
 			})
 
@@ -92,9 +102,13 @@ return {
 				{ desc = "Telescope themes", noremap = true, silent = true }
 			)
 
-			vim.keymap.set("n", "<leader>fn", function()
-				builtin.find_files({ cwd = vim.fn.stdpath("config") })
-			end, { desc = "Search neovim config" })
+			-- multi grep
+			vim.keymap.set(
+				"n",
+				"<leader>X",
+				require("everton/util/multi_grep").setup,
+				{ desc = "search text" }
+			)
 
 			vim.keymap.set("n", "<leader>/", function()
 				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({

@@ -1,15 +1,6 @@
 return {
 
 	{
-
-		"vhyrro/luarocks.nvim",
-		priority = 1001, -- this plugin needs to run before anything else
-		opts = {
-			rocks = { "magick" },
-		},
-	},
-
-	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
 		dependencies = {
@@ -18,62 +9,52 @@ return {
 			"MunifTanjim/nui.nvim",
 			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
-		--[[ 	config = function()
-		require("neo-tree").setup({
-
-			window = {
-				mappings = {
-					["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
-				},
-			},
-		})
-	end, ]]
 		config = function()
 			require("neo-tree").setup({
 				filesystem = {
 					filtered_items = {
 						visible = true,
-						hide_dotfiles = true,
-						hide_gitignored = true,
 						hide_hidden = true,
+						hide_dotfiles = false,
+						hide_gitignored = true,
+						hide_by_name = { "node_modules" },
 					},
 				},
+				follow_current_file = true,
+				use_libuv_file_watcher = true,
+				auto_expand_width = true,
 			})
+			vim.keymap.set("n", "<leader><Tab>", "<Cmd>Neotree toggle<CR>", { desc = "open files tree" })
+			vim.keymap.set("n", "<leader>e", ":Neotree reveal_force_cwd<CR>")
+		end,
+	},
+	{
 
-			-- require("image").setup({
-			-- 	
-			-- 	backend = "kitty",
-			-- 	integrations = {
-			-- 		markdown = {
-			-- 			enabled = true,
-			-- 			clear_in_insert_mode = false,
-			-- 			download_remote_images = true,
-			-- 			only_render_image_at_cursor = true,
-			-- 			filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-			-- 			resolve_image_path = function(document_path, image_path, fallback)
-			-- 				return fallback(document_path, image_path)
-			-- 			end,
-			-- 		},
-			-- 		html = {
-			-- 			enabled = false,
-			-- 		},
-			-- 		css = {
-			-- 			enabled = false,
-			-- 		},
-			-- 	},
-			-- 	max_width = nil,
-			-- 	max_height = nil,
-			-- 	max_width_window_percentage = nil,
-			-- 	max_height_window_percentage = 50,
-			-- 	window_overlap_clear_enabled = false, -- toggles images when windows are overlapped
-			-- 	window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
-			-- 	editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
-			-- 	tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
-			-- 	hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
-			-- })
+		"DaikyXendo/nvim-material-icon",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			local web_devicons_ok, web_devicons = pcall(require, "nvim-web-devicons")
+			if not web_devicons_ok then
+				return
+			end
 
-			-- package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
-			-- package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
+			local material_icon_ok, material_icon = pcall(require, "nvim-material-icon")
+			if not material_icon_ok then
+				return
+			end
+
+			web_devicons.setup({ override = material_icon.get_icons() })
+
+			require("nvim-material-icon").setup()
+		end,
+	},
+	{
+		"skardyy/neo-img",
+		build = ":NeoImg Install",
+		config = function()
+			require("neo-img").setup({
+				backend = "kitty", -- gosth terminal works with kitty protocol -- macos
+			})
 		end,
 	},
 }
