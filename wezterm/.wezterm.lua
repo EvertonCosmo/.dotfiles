@@ -55,7 +55,7 @@ config.webgpu_power_preference = "HighPerformance"
 -- config.color_scheme = "Oxocarbon Dark (Gogh)"
 -- config.color_scheme = 'Gruvbox Dark (Gogh)'
 -- config.color_scheme = 'Gruvbox dark, hard (base16)'
-config.font_size = 12
+config.font_size = 11
 config.line_height = 1.1
 
 -- config.window_decorations = "RESIZE"

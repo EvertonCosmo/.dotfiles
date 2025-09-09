@@ -1,80 +1,69 @@
 return {
-
 	{
-		"rebelot/kanagawa.nvim",
+		"Koalhack/darcubox-nvim",
+		config = function()
+			-- vim.cmd("colorscheme darcubox")
+		end,
+	},
+	{
+		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
+		opts = {},
+		config = function()
+			require("tokyonight").setup({})
+			-- vim.cmd.colorscheme("tokyonight-night")
+		end,
 	},
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	name = "folkeTokyonight",
-	-- 	-- priority = 1000,
-	-- 	config = function()
-	-- 		local transparent = true
-	-- 		local bg = "#011628"
-	-- 		local bg_dark = "#011423"
-	-- 		local bg_highlight = "#143652"
-	-- 		local bg_search = "#0A64AC"
-	-- 		local bg_visual = "#275378"
-	-- 		local fg = "#CBE0F0"
-	-- 		local fg_dark = "#B4D0E9"
-	-- 		local fg_gutter = "#627E97"
-	-- 		local border = "#547998"
-	--
-	-- 		require("tokyonight").setup({
-	-- 			style = "night",
-	-- 			transparent = transparent,
-	--
-	-- 			styles = {
-	-- 				comments = { italic = false },
-	-- 				keywords = { italic = false },
-	-- 				sidebars = transparent and "transparent" or "dark",
-	-- 				floats = transparent and "transparent" or "dark",
-	-- 			},
-	-- 			on_colors = function(colors)
-	-- 				colors.bg = transparent and colors.none or bg
-	-- 				colors.bg_dark = transparent and colors.none or bg_dark
-	-- 				colors.bg_float = transparent and colors.none or bg_dark
-	-- 				colors.bg_highlight = bg_highlight
-	-- 				colors.bg_popup = bg_dark
-	-- 				colors.bg_search = bg_search
-	-- 				colors.bg_sidebar = transparent and colors.none or bg_dark
-	-- 				colors.bg_statusline = transparent and colors.none or bg_dark
-	-- 				colors.bg_visual = bg_visual
-	-- 				colors.border = border
-	-- 				colors.fg = fg
-	-- 				colors.fg_dark = fg_dark
-	-- 				colors.fg_float = fg
-	-- 				colors.fg_gutter = fg_gutter
-	-- 				colors.fg_sidebar = fg_dark
-	-- 			end,
-	-- 		})
-	-- 		-- vim.cmd("colorscheme tokyonight")
-	-- 		-- NOTE: Auto switch to tokyonight for markdown files only
-	-- 		-- vim.api.nvim_create_autocmd("FileType", {
-	-- 		--     pattern = { "markdown" },
-	-- 		--     callback = function()
-	-- 		--         -- Ensure the theme switch only happens once for a buffer
-	-- 		--         local buffer = vim.api.nvim_get_current_buf()
-	-- 		--         if not vim.b[buffer].tokyonight_applied then
-	-- 		--             if vim.fn.expand("%:t") ~= "" and vim.api.nvim_buf_get_option(0, "buftype") ~= "nofile" then
-	-- 		--                 vim.cmd("colorscheme tokyonight")
-	-- 		--             end
-	-- 		--             vim.b[buffer].tokyonight_applied = true
-	-- 		--         end
-	-- 		--     end,
-	-- 		-- })
-	-- 	end,
-	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				keywordStyle = { italic = false },
+				overrides = function(colors)
+					local palette = colors.palette
+					return {
+						String = { italic = true },
+						Boolean = { fg = palette.dragonPink },
+						Constant = { fg = palette.dragonPink },
+
+						Identifier = { fg = palette.dragonBlue },
+						Statement = { fg = palette.dragonBlue },
+						Operator = { fg = palette.dragonGray2 },
+						Keyword = { fg = palette.dragonRed },
+						Function = { fg = palette.dragonGreen },
+
+						Type = { fg = palette.dragonYellow },
+
+						Special = { fg = palette.dragonOrange },
+
+						["@lsp.typemod.function.readonly"] = { fg = palette.dragonBlue },
+						["@variable.member"] = { fg = palette.dragonBlue },
+					}
+				end,
+			})
+			-- vim.cmd("colorscheme kanagawa-dragon")
+		end,
+	},
+
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			-- vim.cmd.colorscheme("rose-pine")
+		end,
+	},
 	{
 		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		config = function()
-			-- require("nightfox").setup({
-			-- 	options = {
-			-- 		transparent = true,
-			-- 	}
-			-- })
+			require("nightfox").setup({
+				options = {
+					transparent = false,
+					terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal
+					dim_inactive = false, -- Non focused panes set to alternative background
+				},
+			})
 			vim.cmd.colorscheme("carbonfox")
 		end,
 	},
@@ -83,37 +72,36 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 	},
-	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("gruvbox").setup({})
-	--
-	-- 	end,
-	-- },
-	-- {
-	-- 	"sainnhe/gruvbox-material",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		-- Optionally configure and load the colorscheme
-	-- 		-- directly inside the plugin declaration.
-	-- 		vim.g.gruvbox_material_enable_italic = true
-	-- 		vim.g.gruvbox_material_background = "medium" -- hard, soft, medium
-	-- 		vim.g.gruvbox_material_foreground = "material" -- original, mix, material
-	-- 		vim.g.gruvbox_material_sign_column_background = "none"
-	-- 		-- vim.cmd.colorscheme("gruvbox-material")
-	-- 	end,
-	-- },
+	{
+		"ellisonleao/gruvbox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("gruvbox").setup({
+				terminal_colors = true,
+				inverse = true,
+				contrast = "",
+				palette_overrides = {},
+				overrides = {},
+				dim_inactive = false,
+				transparent_mode = true,
+			})
 
-	-- {
-	-- 	"sainnhe/gruvbox-material",
-	-- 	name = "gruvbox-material",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd.colorscheme("gruvbox-material")
-	-- 	end
-	-- },
+			-- vim.cmd.colorscheme("gruvbox")
+		end,
+	},
+	{
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.gruvbox_material_enable_italic = true
+			vim.g.gruvbox_material_background = "medium" -- hard, soft, medium
+			vim.g.gruvbox_material_foreground = "material" -- original, mix, material
+			vim.g.gruvbox_material_sign_column_background = "none"
+			-- vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
 }

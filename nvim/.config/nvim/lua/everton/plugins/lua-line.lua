@@ -68,14 +68,14 @@ return {
 			},
 		}
 
-		local mode = {
-			"mode",
-			fmt = function(str)
-				-- return ' '
-				-- displays only the first character of the mode
-				return " " .. str
-			end,
-		}
+		-- local mode = {
+		-- 	"mode",
+		-- 	fmt = function(str)
+		-- 		-- return ' '
+		-- 		-- displays only the first character of the mode
+		-- 		return " " .. str
+		-- 	end,
+		-- }
 
 		local diff = {
 			"diff",
@@ -95,12 +95,13 @@ return {
 		lualine.setup({
 			icons_enabled = true,
 			options = {
-				theme = my_lualine_theme,
+				-- theme = my_lualine_theme,
+				theme = "carbonfox",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "|", right = "" },
 			},
 			sections = {
-				lualine_a = { mode },
+				-- lualine_a = { mode },
 				lualine_b = { branch },
 				lualine_c = {
 					diff,

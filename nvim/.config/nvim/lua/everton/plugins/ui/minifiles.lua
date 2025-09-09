@@ -15,7 +15,7 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<C-l>", function()
+		vim.keymap.set("n", "<leader>m", function()
 			MiniFiles.open(vim.api.nvim_buf_get_name(0))
 		end, { desc = "Open file in Minifiles" })
 	end,

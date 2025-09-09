@@ -1,11 +1,3 @@
--- return {
---   "Fildo7525/pretty_hover",
---   event = "LspAttach",
---   config = function()
---     require("pretty_hover").setup({})
---   end
--- }
-
 return {
 	"lewis6991/hover.nvim",
 	init = function()
@@ -24,7 +16,7 @@ return {
 	},
   -- stylua: ignore
   keys = {
-    { "K", function() require("hover").hover() end, desc = "Hover" },
-    { "gk", function() require("hover").hover_select() end, desc = "Hover Select" },
+    { "K", function() require("hover").open() end, desc = "Hover" },
+    { "gk", function() require("hover").select() end, desc = "Hover Select" },
   },
 }
