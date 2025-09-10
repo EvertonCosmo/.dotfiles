@@ -1,3 +1,4 @@
+
 # This is the configuration file for Ghostty.
 
 background = 000000
@@ -10,3 +11,7 @@ gtk-titlebar = false
 
 font-family ="Comic Code Medium"
 font-size = 11
+#font-size = 14
+macos-titlebar-style = hidden
+#adjust-cell-height = 35% --macOS especially
+

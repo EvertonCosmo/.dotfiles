@@ -68,6 +68,17 @@ return {
 		end,
 	},
 	{
+		"fynnfluegge/monet.nvim",
+		name = "monet",
+		config = function()
+			require("monet").setup({
+				transparent_background = true,
+			})
+
+			-- vim.cmd.colorscheme("monet")
+		end,
+	},
+	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
