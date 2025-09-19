@@ -120,7 +120,7 @@ return {
 
 		lint.linters_by_ft = {
 			html = { "htmlhint" },
-			go = { "codespell", "golangcilint" },
+			-- go = { "codespell", "golangcilint" },
 			sh = { "bash", "shellcheck" },
 			zsh = { "shellcheck", "zsh" },
 		}

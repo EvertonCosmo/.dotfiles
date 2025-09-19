@@ -6,6 +6,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"andrew-george/telescope-themes",
 			"nvim-tree/nvim-web-devicons",
+			"https://git.myzel394.app/Myzel394/jsonfly.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
@@ -80,6 +81,7 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("live_grep_args")
 			telescope.load_extension("ui-select")
+			telescope.load_extension("jsonfly")
 			telescope.load_extension("themes")
 
 			local builtin = require("telescope.builtin")
@@ -88,13 +90,13 @@ return {
 			vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = "Live Grep" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope Help tags" })
 			vim.keymap.set("n", "<leader><space>", builtin.buffers, {})
-			-- vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, {})
+			
 			vim.keymap.set("n", "<leader>?", builtin.oldfiles, {})
 			vim.keymap.set("n", "<leader>fs", builtin.grep_string, {})
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
 			vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 			vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todos" })
-			--  telescope themes keymap
+			vim.keymap.set("n", "<leader>j", "<Cmd>Telescope jsonfly<CR>", { desc = "search current JSON structure" })
 			vim.keymap.set(
 				"n",
 				"<leader>ths",
@@ -103,12 +105,7 @@ return {
 			)
 
 			-- multi grep
-			vim.keymap.set(
-				"n",
-				"<leader>X",
-				require("everton/util/multi_grep").setup,
-				{ desc = "search text" }
-			)
+			vim.keymap.set("n", "<leader>X", require("everton/util/multi_grep").setup, { desc = "search text" })
 
 			vim.keymap.set("n", "<leader>/", function()
 				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({

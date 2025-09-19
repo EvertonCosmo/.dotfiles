@@ -23,6 +23,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"ts_ls",
+					"jsonls",
 					"eslint",
 					"biome",
 					"jsonls",
