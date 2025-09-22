@@ -42,23 +42,18 @@ return {
 					lspconfig[server_name].setup({ capabilities = default_capabilities })
 				end,
 
-				-- ["eslint"] = function()
-				--     lspconfig["eslint"].setup({
-				--         capabilities = default_capabilities,
-				--         on_attach = function(client, bufnr)
-				--             client.server_capabilities.documentFormattingProvider = false      -- 0.8 and later
-				--             client.server_capabilities.documentRangeFormattingProvider = false -- 0.8 and later
-				--             client.server_capabilities.diagnosticsProvider = false
-				--         end,
-				--     })
-				-- end,
+				["eslint"] = function()
+					lspconfig["eslint"].setup({
+						capabilities = default_capabilities,
+					})
+				end,
 
 				["html"] = function()
 					lspconfig["html"].setup({
 						capabilities = default_capabilities,
-						filetypes = { "html", "typescriptreact", "javascriptreact" },
 					})
 				end,
+
 				["lua_ls"] = function()
 					lspconfig["lua_ls"].setup({
 						capabilities = default_capabilities,
