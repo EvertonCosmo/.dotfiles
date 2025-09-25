@@ -4,9 +4,11 @@ return {
 	build = ":Cord update",
 	event = "VeryLazy",
 	opts = {
-
 		display = {
 			show_repository = false,
+		},
+		text = {
+			workspace = "",
 		},
 	}, -- calls require('cord').setup()
 }

@@ -96,7 +96,7 @@ return {
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
 			vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 			vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todos" })
-			vim.keymap.set("n", "<leader>j", "<Cmd>Telescope jsonfly<CR>", { desc = "search current JSON structure" })
+			vim.keymap.set("n", "<leader><C-j>", "<Cmd>Telescope jsonfly<CR>", { desc = "search current JSON structure" })
 			vim.keymap.set(
 				"n",
 				"<leader>ths",
