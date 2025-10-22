@@ -17,14 +17,13 @@ M.on_attach = function(event)
 	local opts = { noremap = true, silent = true, buffer = buffer }
 
 	keymapset("n", "gD", vim.lsp.buf.declaration, opts)
-	keymapset("n", "gd", vim.lsp.buf.definition, opts)
-	-- keymapset("n", "<leader>gd", function()
-	-- 	require("fzf-lua").lsp_definitions({
-	-- 		jump1= true,
-	-- 	})
-	-- end, opts)
+	-- keymapset("n", "gd", vim.lsp.buf.definition, opts)
+	keymapset("n", "gd", function()
+		require("fzf-lua").lsp_definitions({
+			jump1= true,
+		})
+	end, opts)
 	keymapset("n", "<leader>gS", "<cmd>usplit | lua vim.lsp.buf.definition()<CR>", opts)
-	-- keymapset("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	keymapset("n", "<leader>ca", function()
 		require("fzf-lua").lsp_code_actions({
 			previewer = false,
@@ -68,9 +67,9 @@ M.on_attach = function(event)
 	-- keymapset("n", "<leader>ws", "<cmd>FzfLua lsp_workspace_symbols<CR>", opts) -- Search for any symbol across the entire project/workspace
 	-- keymapset("n", "<leader>gi", "<cmd>FzfLua lsp_implementations<CR>", opts) -- Go to implementation
 
-	-- keymapset("n", "<leader>gd", vim.lsp.buf.definition, opts) -- jump direto para a definição
-	keymapset("n", "gR", "<cmd>FzfLua lsp_references<CR>", opts) -- referências
-	keymapset("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", opts) -- implementações (limite do tsserver)
+	-- keymapset("n", "<leader>gd", vim.lsp.buf.definition, opts)
+	keymapset("n", "gR", "<cmd>FzfLua lsp_references<CR>", opts)
+	keymapset("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", opts)
 	keymapset("n", "<leader>ds", "<cmd>FzfLua lsp_document_symbols<CR>", opts)
 	keymapset("n", "<leader>ws", "<cmd>FzfLua lsp_workspace_symbols<CR>", opts)
 end

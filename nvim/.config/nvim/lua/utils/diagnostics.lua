@@ -17,10 +17,10 @@ M.setup = function()
 				[vim.diagnostic.severity.HINT] = diagnostic_signs.Hint,
 			},
 		},
-		virtual_text = true,
+		virtual_text = false,
 		update_in_insert = true,
 		float = {
-      underline = true,
+			underline = true,
 			focusable = false,
 			style = "minimal",
 			border = "rounded",

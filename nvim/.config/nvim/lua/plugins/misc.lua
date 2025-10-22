@@ -13,6 +13,10 @@ return {
 			require("nvim-highlight-colors").setup({})
 		end,
 	},
+	{
+		"folke/lazydev.nvim",
+		opts = {},
+	},
 
 	-- {
 	-- 	"rrethy/vim-illuminate",
