@@ -11,7 +11,16 @@ return {
 					dim_inactive = false, -- Non focused panes set to alternative background
 				},
 			})
-			vim.cmd.colorscheme("carbonfox")
+			-- vim.cmd.colorscheme("carbonfox")
+		end,
+	},
+	{
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
+		opts = function()
+			vim.g.gruvbox_material_enable_italic = true
+			-- vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 	{
@@ -20,6 +29,14 @@ return {
 		priority = 1000,
 		config = function()
 			-- vim.cmd.colorscheme("melange")
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		name = "catpuccin",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 }

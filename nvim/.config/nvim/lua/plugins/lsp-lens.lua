@@ -3,6 +3,9 @@ return {
 	"VidocqH/lsp-lens.nvim",
 	event = "LspAttach",
 	opts = {
+    sections = {
+      git_authors = false,
+    }
 		-- sections = {
 		-- 	definition = false,
 		-- 	references = function(count)

@@ -1,27 +1,23 @@
 return {
-
 	{
 		"j-hui/fidget.nvim",
-		opts = {},
+		opts = {
+			progress = {
+				ignore = {
+					["jdtls"] = true,  -- Still ignore JDTLS in fidget as a backup
+				},
+			},
+		},
 	},
 	{
 		"b0o/schemastore.nvim",
 	},
 	{
 		"brenoprata10/nvim-highlight-colors",
-		config = function()
-			require("nvim-highlight-colors").setup({})
-		end,
+		opts = {
+			render = "background",
+			enable_named_colors = true,
+			enable_tailwind = true,
+		},
 	},
-	{
-		"folke/lazydev.nvim",
-		opts = {},
-	},
-
-	-- {
-	-- 	"rrethy/vim-illuminate",
-	-- 	config = function()
-	-- 		require("illuminate")
-	-- 	end,
-	-- },
 }

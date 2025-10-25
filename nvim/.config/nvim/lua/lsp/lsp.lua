@@ -13,14 +13,13 @@ M.on_attach = function(event)
 	end
 
 	local keymapset = vim.keymap.set
-
 	local opts = { noremap = true, silent = true, buffer = buffer }
 
 	keymapset("n", "gD", vim.lsp.buf.declaration, opts)
 	-- keymapset("n", "gd", vim.lsp.buf.definition, opts)
 	keymapset("n", "gd", function()
 		require("fzf-lua").lsp_definitions({
-			jump1= true,
+			jump1 = true,
 		})
 	end, opts)
 	keymapset("n", "<leader>gS", "<cmd>usplit | lua vim.lsp.buf.definition()<CR>", opts)

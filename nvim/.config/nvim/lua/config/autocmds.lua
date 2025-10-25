@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+
 local on_attach = require("lsp.lsp").on_attach
 
 local lsp_on_attach_group = vim.api.nvim_create_augroup("LspMappings", {})
@@ -28,4 +29,10 @@ vim.api.nvim_create_user_command("Clean", function()
 	end
 end, {})
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "java",
+	callback = function()
+		require("lsp.java").setup()
+	end,
+})
 
