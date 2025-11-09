@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons", "cameronr/lualine-pretty-path" },
@@ -96,13 +97,15 @@ return {
 			icons_enabled = true,
 			options = {
 				-- theme = my_lualine_theme,
-				theme = "catppuccin",
+				theme = "gruvbox-material",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "|", right = "" },
 			},
 			sections = {
 				-- lualine_a = { mode },
-				lualine_b = { branch },
+				lualine_a = {},
+				-- lualine_b = { branch },
+				lualine_b = {},
 				lualine_c = {
 					diff,
 					{
@@ -130,12 +133,12 @@ return {
 					-- { "fileformat" },
 					{ "filetype" },
 					{ "copilot" },
-					require("utils.lualine-util").cmp_source("supermaven", "󰰣"),
-					{
-						lsp_status_all,
-						fmt = trunc(0, 8, 140, false),
-						separator = "",
-					},
+					-- require("utils.lualine-util").cmp_source("supermaven", "󰰣"),
+					-- {
+					-- 	lsp_status_all,
+					-- 	fmt = trunc(0, 8, 140, false),
+					-- 	separator = "",
+					-- },
 				},
 			},
 		})

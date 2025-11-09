@@ -20,7 +20,9 @@ return {
 		priority = 1000,
 		opts = function()
 			vim.g.gruvbox_material_enable_italic = true
-			-- vim.cmd.colorscheme("gruvbox-material")
+			vim.g.gruvbox_material_foreground = "material" -- original, mix, material
+			vim.g.gruvbox_material_background = "hard" -- hard, medium, soft
+			vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 	{
@@ -31,12 +33,12 @@ return {
 			-- vim.cmd.colorscheme("melange")
 		end,
 	},
-	{
-		"catppuccin/nvim",
-		name = "catpuccin",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("catppuccin-mocha")
-		end,
-	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catpuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		-- vim.cmd.colorscheme("catppuccin-mocha")
+	-- 	end,
+	-- },
 }

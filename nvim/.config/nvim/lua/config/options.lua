@@ -60,15 +60,18 @@ vim.opt.diffopt:append("algorithm:patience")
 vim.opt.diffopt:append("linematch:60")
 ---
 ---
----
+
 vim.opt.backspace = "indent,eol,start"
 vim.opt.autochdir = false
 vim.opt.path:append("*")
 vim.opt.selection = "inclusive"
-vim.opt.showmode = false
+vim.opt.showmode = true
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.encoding = "UTF-8"
 
 -- folder
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+vim.opt.swapfile = false
+vim.opt.guicursor = ""

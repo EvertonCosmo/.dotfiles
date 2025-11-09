@@ -65,6 +65,7 @@ return {
 	opts = {
 
 		files = {
+			cwd_only = true,
 			fd_opts = table.concat({
 				"--color=never",
 				"--type f",
@@ -73,6 +74,12 @@ return {
 				"--exclude node_modules",
 				"--exclude .git",
 			}, " "),
+			winopts = {
+				title = "",
+				preview = {
+					hidden = "true",
+				},
+			},
 		},
 
 		grep = {
@@ -92,14 +99,22 @@ return {
 
 		winopts = {
 			width = 0.9,
+			height = 0.9,
 			row = 0.5,
 			col = 0.5,
 			border = "rounded",
+			fullscreen = false,
+			preview = {
+				layout = "horizontal",
+				horizontal = "right:35%",
+				flip_columns = 120,
+				border = "rounded",
+				hidden = false,
+			},
 		},
 	},
 
 	config = function(_, opts)
 		require("fzf-lua").setup(opts)
-		require("fzf-lua").register_ui_select()
 	end,
 }

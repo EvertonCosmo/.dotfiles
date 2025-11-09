@@ -16,7 +16,7 @@ function M.setup()
 			"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 			"-Dosgi.bundles.defaultStartLevel=4",
 			"-Declipse.product=org.eclipse.jdt.ls.core.product",
-            "-Dlog.level=WARNING",
+			"-Dlog.level=WARNING",
 			"-Xmx1g",
 			"--add-modules=ALL-SYSTEM",
 			"--add-opens",
@@ -78,7 +78,6 @@ function M.setup()
 				generateDelegateMethodsPromptSupport = true,
 				moveRefactoringSupport = true,
 				overrideMethodsPromptSupport = true,
-				hashCodeEqualsPromptSupport = true,
 			},
 		},
 		on_attach = function(client, bufnr)
@@ -93,4 +92,3 @@ function M.setup()
 end
 
 return M
-

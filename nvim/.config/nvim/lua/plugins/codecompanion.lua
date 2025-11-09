@@ -35,7 +35,7 @@ return {
 		dependencies = {
 			"j-hui/fidget.nvim",
 			"ravitemer/codecompanion-history.nvim",
-			"nvim-lua/plenary.nvim",
+			{ "nvim-lua/plenary.nvim", branch = "master" },
 			"nvim-treesitter/nvim-treesitter",
 			"ravitemer/mcphub.nvim",
 		},

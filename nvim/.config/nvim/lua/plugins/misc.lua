@@ -4,7 +4,7 @@ return {
 		opts = {
 			progress = {
 				ignore = {
-					["jdtls"] = true,  -- Still ignore JDTLS in fidget as a backup
+					["jdtls"] = true, -- Still ignore JDTLS in fidget as a backup
 				},
 			},
 		},
@@ -20,4 +20,17 @@ return {
 			enable_tailwind = true,
 		},
 	},
+
+	{
+		-- vim ilumminate
+		"RRethy/vim-illuminate",
+	},
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
 }
+

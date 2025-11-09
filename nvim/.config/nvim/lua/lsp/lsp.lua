@@ -10,6 +10,7 @@ M.on_attach = function(event)
 
 	if client.server_capabilities.inlayHintProvider then
 		vim.lsp.inlay_hint.enable(true, { buffer = buffer })
+		vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#808080", italic = true })
 	end
 
 	local keymapset = vim.keymap.set
