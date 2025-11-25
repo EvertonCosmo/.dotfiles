@@ -72,7 +72,8 @@ return {
 							return require("codecompanion.adapters").extend("copilot", {
 								schema = {
 									model = {
-										default = "claude-sonnet-4.5",
+										-- default = "claude-sonnet-4.5",
+                    default = "gemini-3-pro-preview",
 									},
 								},
 							})
@@ -80,6 +81,22 @@ return {
 					},
 				},
 			})
+			local mcphub = require("mcphub")
+      mcphub.setup()
+			-- mcphub.setup({
+			-- 	port = 3000,
+			--      -- build = "bundled_build.lua",
+			--      -- use_bundled_binary = true,
+			-- 	config = os.getenv("HOME") .. "/.config/mcp-servers.json",
+			-- 	on_ready = function(hub)
+			-- 		vim.notify(
+			-- 			string.format("MCP Hub is ready. %s servers active", #vim.tbl_filter(function(s)
+			-- 				return s.status == "connected"
+			-- 			end, hub:get_state().server_state.servers or {})),
+			-- 			vim.log.levels.INFO
+			-- 		)
+			-- 	end,
+			-- })
 
 			local progress = require("fidget.progress")
 			local handles = {}
@@ -111,7 +128,7 @@ return {
 			})
 
 			vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+			-- vim.keymap.set("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 			vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
 			-- Expand 'cc' into 'CodeCompanion' in the command line

@@ -8,6 +8,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("User", {
+	pattern = "ObsidianNoteEnter",
+	callback = function(ev)
+		vim.keymap.del("n", "<CR>", { buffer = ev.buf })
+		vim.keymap.set("n", "<leader><CR>", require("obsidian.api").smart_action, { buffer = ev.buf })
+	end,
+})
 
 local on_attach = require("lsp.lsp").on_attach
 
@@ -35,4 +42,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		require("lsp.java").setup()
 	end,
 })
-

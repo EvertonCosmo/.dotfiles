@@ -7,15 +7,15 @@ return {
 			current_line_blame = false,
 		})
 
-		vimkeymap.set("n", "<leaderga", function()
+		vimkeymap.set("n", "<leader>ga", function()
 			vimcmd.Gitsigns("blame")
 		end, { desc = "Git Blame" })
 
-		vimkeymap.set("n", "<leadergb", function()
+		vimkeymap.set("n", "<leader>gb", function()
 			vimcmd.Gitsigns("toggle_current_line_blame")
 		end, { desc = "Toggle Git Blame" })
 
-		vimkeymap.set("n", "<leadergp", function()
+		vimkeymap.set("n", "<leader>gp", function()
 			vimcmd.Gitsigns("preview_hunk")
 		end, { desc = "Preview Git Hunk" })
 	end,

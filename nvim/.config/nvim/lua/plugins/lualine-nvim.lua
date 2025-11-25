@@ -97,7 +97,8 @@ return {
 			icons_enabled = true,
 			options = {
 				-- theme = my_lualine_theme,
-				theme = "gruvbox-material",
+				-- theme = "gruvbox-material",
+				theme = "onedark",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "|", right = "" },
 			},

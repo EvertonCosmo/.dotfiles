@@ -1,5 +1,11 @@
 {
     "diagnostics.disable": [
-        "undefined-field"
+        "undefined-field",
+        "newfield-call"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "im",
+        "dsjkdskj"
     ]
 }

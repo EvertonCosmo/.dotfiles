@@ -22,7 +22,7 @@ return {
 			vim.g.gruvbox_material_enable_italic = true
 			vim.g.gruvbox_material_foreground = "material" -- original, mix, material
 			vim.g.gruvbox_material_background = "hard" -- hard, medium, soft
-			vim.cmd.colorscheme("gruvbox-material")
+			-- vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 	{
@@ -33,12 +33,18 @@ return {
 			-- vim.cmd.colorscheme("melange")
 		end,
 	},
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catpuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		-- vim.cmd.colorscheme("catppuccin-mocha")
-	-- 	end,
-	-- },
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000,
+		lazy = false,
+		config = function()
+			require("onedark").setup({
+				style = "warmer", -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer'
+				transparent = false,
+				term_colors = true,
+			})
+
+			require("onedark").load()
+		end,
+	},
 }
