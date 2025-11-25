@@ -8,7 +8,7 @@ local diagnostic_signs = {
 }
 
 M.setup = function()
-	vim.keymap("n", "<leader>ud", function()
+	vim.keymap.set("n", "<leader>ud", function()
 		vim.diagnostic.config({ underline = not not vim.g.diagnostic_enabled })
 		vim.g.diagnostic_enabled = not vim.g.diagnostic_enabled
 	end, { silent = true, noremap = true, desc = "Toggle Diagnostics Underline" })
