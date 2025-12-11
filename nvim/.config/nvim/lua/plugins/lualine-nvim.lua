@@ -98,7 +98,7 @@ return {
 			options = {
 				-- theme = my_lualine_theme,
 				-- theme = "gruvbox-material",
-				theme = "onedark",
+				theme = "cyberdream",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "|", right = "" },
 			},

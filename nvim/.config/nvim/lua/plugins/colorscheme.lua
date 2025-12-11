@@ -43,8 +43,21 @@ return {
 				transparent = false,
 				term_colors = true,
 			})
-
-			require("onedark").load()
+		end,
+	},
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("cyberdream").setup({
+				variant = "auto",
+				transparent = false,
+				italic_comments = true,
+				hide_fillchars = false,
+				terminal_colors = true,
+			})
+			vim.cmd([[colorscheme cyberdream]])
 		end,
 	},
 }

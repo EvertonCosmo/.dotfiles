@@ -32,6 +32,7 @@ return {
 	},
 	{
 		"olimorris/codecompanion.nvim",
+		version = "17.33.0", -- https://github.com/olimorris/codecompanion.nvim/pull/2439, BREAKING CHANGES WILL COMING SOON
 		dependencies = {
 			"j-hui/fidget.nvim",
 			"ravitemer/codecompanion-history.nvim",
@@ -40,7 +41,38 @@ return {
 			"ravitemer/mcphub.nvim",
 		},
 		config = function()
+			local function get_project_context(path)
+				local handle = io.popen("git -C " .. path .. " ls-files")
+				if not handle then
+					return "Error: Could not run git in " .. path
+				end
+
+				local output = handle:read("*a")
+				handle:close()
+
+				if output == "" then
+					handle = io.popen("find " .. path .. " -maxdepth 3 -not -path '*/.*'")
+					output = handle:read("*a")
+					handle:close()
+				end
+				return "Project structure for" .. path .. ":\n" .. output
+			end
+
 			require("codecompanion").setup({
+        -- INFO: here can define variables in this example pointing to a project  
+        -- strategies = {
+        --   chat = {
+        --     variables = {
+        --       project_1= {
+        --         description = "Project 1",
+        --         callback = function()
+        --           return get_project_context("path here")
+        --         end
+        --
+        --       }
+        --     }
+        --   }
+        -- },
 				extensions = {
 					history = {
 						enabled = true,
@@ -73,7 +105,8 @@ return {
 								schema = {
 									model = {
 										-- default = "claude-sonnet-4.5",
-                    default = "gemini-3-pro-preview",
+										-- default = "gemini-3-pro-preview",
+										default = "claude-opus-4.5",
 									},
 								},
 							})
@@ -82,7 +115,7 @@ return {
 				},
 			})
 			local mcphub = require("mcphub")
-      mcphub.setup()
+			mcphub.setup()
 			-- mcphub.setup({
 			-- 	port = 3000,
 			--      -- build = "bundled_build.lua",
