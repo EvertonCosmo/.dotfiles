@@ -32,7 +32,6 @@ return {
 	},
 	{
 		"olimorris/codecompanion.nvim",
-		version = "17.33.0", -- https://github.com/olimorris/codecompanion.nvim/pull/2439, BREAKING CHANGES WILL COMING SOON
 		dependencies = {
 			"j-hui/fidget.nvim",
 			"ravitemer/codecompanion-history.nvim",
