@@ -1,3 +1,4 @@
+-- disable next line comment
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 
 -- disabled spell check for markdown files
