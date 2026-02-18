@@ -75,3 +75,4 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 vim.opt.swapfile = false
 vim.opt.guicursor = ""
+vim.opt.smoothscroll = true
