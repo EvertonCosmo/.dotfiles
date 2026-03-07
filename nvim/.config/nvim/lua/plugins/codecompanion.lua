@@ -36,7 +36,7 @@ return {
 			"j-hui/fidget.nvim",
 			"ravitemer/codecompanion-history.nvim",
 			{ "nvim-lua/plenary.nvim", branch = "master" },
-			"nvim-treesitter/nvim-treesitter",
+      "nvim-treesitter/nvim-treesitter",
 			"ravitemer/mcphub.nvim",
 		},
 		config = function()
@@ -90,7 +90,7 @@ return {
 					mcphub = {
 						callback = "mcphub.extensions.codecompanion",
 						opts = {
-							make_vars = true,
+							make_vars = false,
 							make_slash_commands = true,
 							show_result_in_chat = true,
 						},
@@ -105,7 +105,7 @@ return {
 									model = {
 										-- default = "claude-sonnet-4.5",
 										-- default = "gemini-3-pro-preview",
-										default = "claude-opus-4.5",
+										default = "claude-sonnet-4.6",
 									},
 								},
 							})

@@ -57,7 +57,7 @@ return {
         hide_fillchars = false,
         terminal_colors = true,
       })
-      vim.cmd([[colorscheme cyberdream]])
+      -- vim.cmd([[colorscheme cyberdream]])
     end,
   },
 

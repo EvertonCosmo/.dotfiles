@@ -2,10 +2,11 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
+    branch = "master",
     event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     config = function()
-      local configs = require("nvim-treesitter.config")
+      local configs = require("nvim-treesitter.configs")
 
       configs.setup({
         ensure_installed = {
@@ -28,6 +29,7 @@ return {
           "jsdoc",
           "json",
           "dockerfile",
+          "yaml"
         },
         incremental_selection = {
           enable = true,
