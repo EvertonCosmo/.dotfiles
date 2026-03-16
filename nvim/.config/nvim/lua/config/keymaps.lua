@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 
-vim.keymap.set("n", "<leader>pv",vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>!", ":Clean<CR>", { noremap = true, silent = true }
 
 -- inlay hints
 vim.keymap.set("n", "<leader>i", function()
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
 end)
 
 -- clean hightlight on search
@@ -31,10 +31,10 @@ vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- indent in visual mode
-vim.keymap.set("v","<", "<gv", {desc ="Indent left"})
-vim.keymap.set("v",">", ">gv", {desc ="Indent right"})
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 
- -- copilot super tab 
+-- copilot super tab
 
 vim.keymap.set('i', '<Tab>', function()
   if require("copilot.suggestion").is_visible() then
