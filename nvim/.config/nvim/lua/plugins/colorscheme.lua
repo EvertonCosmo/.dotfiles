@@ -68,7 +68,63 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
-      vim.cmd("colorscheme rose-pine")
+      -- vim.cmd("colorscheme rose-pine")
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      -- vim.cmd.colorscheme("tokyonight-night")
+    end,
+  },
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   lazy = false,
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require('onedark').setup {
+  --       style = 'darker',
+  --       term_colors = true
+  --     }
+  --     require('onedark').load()
+  --   end
+  -- },
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+    config = function()
+      require('onedarkpro').setup({})
+      vim.cmd.colorscheme("onedark")
     end
   }
+  -- {
+  --
+  --   "sainnhe/gruvbox-material",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- These specific options match Feldman's "washed out" look:
+  --     vim.g.gruvbox_material_background = 'medium' -- or 'soft'
+  --     vim.g.gruvbox_material_foreground = 'material'
+  --     vim.g.gruvbox_material_better_performance = 1
+  --
+  --     -- vim.cmd([[colorscheme gruvbox-material]])
+  --   end,
+  -- },
+  -- {
+  --   "Kopihue/one-dark-pro-max",
+  --   name = "one-dark-pro-max",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require("one-dark-pro-max").setup({
+  --       transparent = false,
+  --     })
+  --     -- vim.cmd("colorscheme one-dark-pro-max")
+  --   end
+  -- }
+
 }

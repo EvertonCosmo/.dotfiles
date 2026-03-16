@@ -1,18 +1,19 @@
-return  {
+return {
   "hrsh7th/nvim-cmp",
   dependencies = {
     "saadparwaiz1/cmp_luasnip",
-  {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    build = "make install_jsregexp"
+    "SergioRibera/cmp-dotenv",
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+      build = "make install_jsregexp"
     },
-  "rafamadriz/friendly-snippets",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-nvim-lsp-signature-help",
-  "Snikimonkd/cmp-go-pkgs"
+    "rafamadriz/friendly-snippets",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    "Snikimonkd/cmp-go-pkgs"
   },
   config = function()
     local cmp = require("cmp")
@@ -47,6 +48,7 @@ return  {
         { name = "nvim_lua" },
         { name = "nvim_lsp_signature_help" },
         { name = "go_pkgs" },
+        { name = "dotenv" },
       }
     })
   end
