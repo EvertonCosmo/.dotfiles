@@ -92,14 +92,14 @@ return {
   --     require('onedark').load()
   --   end
   -- },
-  {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-    config = function()
-      require('onedarkpro').setup({})
-      vim.cmd.colorscheme("onedark")
-    end
-  }
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   priority = 1000, -- Ensure it loads first
+  --   config = function()
+  --     require('onedarkpro').setup({})
+  --     vim.cmd.colorscheme("onedark")
+  --   end
+  -- },
   -- {
   --
   --   "sainnhe/gruvbox-material",
@@ -126,5 +126,28 @@ return {
   --     -- vim.cmd("colorscheme one-dark-pro-max")
   --   end
   -- }
+
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("kanagawa").setup({
+        transparent = false,
+        terminalColors = true,
+        dim_inactive = false,
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = "none",
+              },
+            },
+          }
+        }
+      })
+      vim.cmd.colorscheme("kanagawa-wave")
+    end,
+  }
 
 }
