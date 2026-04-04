@@ -3,7 +3,7 @@ return {
   version = "*",
   cmd = "Obsidian",
   ft = "markdown",
-  enabled = false,
+  enabled = true,
   opts = {
     ui = { enable = true },
     legacy_commands = false,
