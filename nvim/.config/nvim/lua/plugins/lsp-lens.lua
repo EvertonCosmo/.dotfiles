@@ -1,6 +1,6 @@
 
 return {
-	"VidocqH/lsp-lens.nvim",
+	"tkolleh/lsp-lens.nvim",
 	event = "LspAttach",
 	opts = {
     sections = {

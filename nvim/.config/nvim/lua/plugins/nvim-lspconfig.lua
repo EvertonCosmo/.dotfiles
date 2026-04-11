@@ -3,15 +3,15 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       { "mason-org/mason.nvim",                opts = {} },
-      "hrsh7th/cmp-nvim-lsp",
       "mason-org/mason-lspconfig.nvim",
       { "antosha417/nvim-lsp-file-operations", config = true },
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       require("utils.diagnostics").setup()
       require("lsp-file-operations").setup()
-      local masonlsp = require("mason-lspconfig")
-      masonlsp.setup({
+
+      require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
           "ts_ls",
@@ -22,10 +22,13 @@ return {
           "eslint",
           "gopls",
           "clangd",
-          "yamlls"
+          "yamlls",
+          "prismals",
+          "terraformls",
+          "tailwindcss",
         },
-        automatic_installation = true,
       })
+
       require("servers")
     end,
   },

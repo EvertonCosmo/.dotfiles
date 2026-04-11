@@ -43,3 +43,11 @@ vim.api.nvim_create_autocmd("FileType", {
     require("lsp.java").setup()
   end,
 })
+
+vim.filetype.add({
+	pattern = {
+		[".*/waybar/config"] = "jsonc",
+		[".*/mako/config"] = "dosini",
+		[".*/hypr/.*%.conf"] = "hyprlang",
+	},
+})

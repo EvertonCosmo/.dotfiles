@@ -1,7 +1,1 @@
-return function(capabilities)
-    -- This is just a placeholder to prevent auto-configuration
-    -- The actual configuration is handled by ftplugin/java.lua
-    return {
-        -- Empty config to prevent auto-setup
-    }
-end
+-- This file exists only to prevent "LSP config not found" warnings if referenced.

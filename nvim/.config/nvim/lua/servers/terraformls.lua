@@ -1,4 +1,4 @@
 --- @return nil
 return function()
-  vim.lsp.config('bashls', {})
+  vim.lsp.config('terraformls', {})
 end

@@ -1,7 +1,4 @@
--- @param capabilities table
--- @return nil
-return function(capabilities)
-  vim.lsp.config('dockerls', {
-    capabilities = capabilities
-  })
+--- @return nil
+return function()
+  vim.lsp.config('docker_language_server', {})
 end
