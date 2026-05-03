@@ -12,6 +12,7 @@ return function()
           parameterNames = true,
           rangeVariableTypes = true,
         },
+        completeUnimported = true,
       },
     },
   })

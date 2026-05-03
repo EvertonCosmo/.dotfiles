@@ -13,7 +13,6 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-nvim-lsp-signature-help",
-    "Snikimonkd/cmp-go-pkgs"
   },
   config = function()
     local cmp = require("cmp")
@@ -47,7 +46,6 @@ return {
         { name = "buffer" },
         { name = "nvim_lua" },
         { name = "nvim_lsp_signature_help" },
-        { name = "go_pkgs" },
         { name = "dotenv" },
       }
     })
