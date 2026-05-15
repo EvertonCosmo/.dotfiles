@@ -57,6 +57,7 @@ return {
 					json = { "biome", "prettier" },
 					jsonc = { "biome" },
 					lua = { "stylua" },
+					python = { "black", "isort" },
 					sh = { "shfmt" },
 					sql = { "sql_formatter" },
 					svelte = { "biome", "prettier" },

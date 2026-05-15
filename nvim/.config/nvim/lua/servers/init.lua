@@ -14,6 +14,7 @@ local servers = {
   'prismals',
   'terraformls',
   'tailwindcss',
+  'pylsp',
 }
 
 for _, server in ipairs(servers) do

@@ -28,6 +28,7 @@ return {
 					"prismals",
 					"terraformls",
 					"tailwindcss",
+					"pylsp",
 				},
 			})
 
