@@ -17,7 +17,7 @@ function M.setup()
       "-Dosgi.bundles.defaultStartLevel=4",
       "-Declipse.product=org.eclipse.jdt.ls.core.product",
       "-Dlog.level=WARNING",
-      "-Xmx1g",
+      "-Xmx2g",
       "--add-modules=ALL-SYSTEM",
       "--add-opens",
       "java.base/java.util=ALL-UNNAMED",
@@ -32,7 +32,10 @@ function M.setup()
     },
 
     root_dir = vim.fs.dirname(
-      vim.fs.find({ ".git", "mvnw", "gradlew", "pom.xml" }, { upward = true })[1] or vim.fn.getcwd()
+      vim.fs.find(
+        { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", "build.gradle.kts", "settings.gradle", "settings.gradle.kts" },
+        { upward = true }
+      )[1] or vim.fn.getcwd()
     ),
 
     settings = {
@@ -40,8 +43,9 @@ function M.setup()
         configuration = {
           runtimes = {
             {
-              name = "JavaSE-21",
-              path = "/usr/lib/jvm/java-21-openjdk",
+              name = "JavaSE-17",
+              path = "/usr/lib/jvm/java-17-openjdk",
+              default = true,
             },
           },
         },
