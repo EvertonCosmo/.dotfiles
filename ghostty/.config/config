@@ -1,17 +1,23 @@
 
-# This is the configuration file for Ghostty.
-
-background = 000000
-# theme = GruvboxDarkHard
-theme = carbonfox 
-background-opacity = 0.85
+# background-opacity = 0.85
 background-blur = false
 confirm-close-surface=false
 gtk-titlebar = false 
 
-font-family ="Comic Code Medium"
-font-size = 11
-#font-size = 14
+theme = Kanagawa Wave
+
+# font-family ="Comic Code Medium"
+font-family = "Annotation Mono"
+# font-family = "Maple Mono NF"
+# font-size = 11
+# font-size = 1
 macos-titlebar-style = hidden
+
+window-padding-balance = true
+window-padding-x = 0
+window-padding-y = 0
 #adjust-cell-height = 35% --macOS especially
 
+# Disable Ctrl+Enter fullscreen keybind
+keybind = ctrl+enter=unbind
+shell-integration-features = no-cursor,no-sudo,no-title
