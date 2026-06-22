@@ -28,3 +28,18 @@ set -gx LANG en_US.UTF-8
 set fish_greeting ""
 
 
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/evertoncosmo/.lmstudio/bin
+# End of LM Studio CLI section
+
+fish_add_path $HOME/.pyenv/bin
+
+# Configura o PYENV_ROOT
+set -Ux PYENV_ROOT $HOME/.pyenv
+
+# # Adiciona a inicialização do pyenv ao arquivo config.fish
+# if not contains 'pyenv init - | source' ~/.config/fish/config.fish
+#     echo 'pyenv init - | source' >> ~/.config/fish/config.fish
+# end

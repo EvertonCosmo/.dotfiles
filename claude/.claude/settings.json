@@ -7,6 +7,9 @@
     "defaultMode": "auto"
   },
   "model": "claude-opus-4-8",
+  "env": {
+    "CLAUDE_CODE_TMUX_TRUECOLOR": "1"
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -16,6 +19,14 @@
             "command": "node \"/home/evertoncosmo/.claude/hooks/caveman-activate.js\"",
             "timeout": 5,
             "statusMessage": "Loading caveman mode..."
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /home/evertoncosmo/.claude/hooks/context-mode-cache-heal.mjs"
           }
         ]
       }
