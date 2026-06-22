@@ -6,6 +6,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-opus-4-8",
   "hooks": {
     "SessionStart": [
       {
@@ -61,5 +62,6 @@
   "effortLevel": "high",
   "editorMode": "vim",
   "autoCompactEnabled": false,
+  "switchModelsOnFlag": false,
   "skipAutoPermissionPrompt": true
 }

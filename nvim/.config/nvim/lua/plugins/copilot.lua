@@ -3,8 +3,8 @@ return {
 	{
 		"zbirenbaum/copilot.lua",
 		event = "InsertEnter",
-    enabled = true,
-    lazy = false,
+		enabled = false,
+		lazy = false,
 		opts = {
 			node_command = "node",
 			server_opts_overrides = {},
