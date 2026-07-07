@@ -1,14 +1,10 @@
 {
-  "includeCoAuthoredBy": false,
-  "permissions": {
-    "allow": [
-      "mcp__pencil"
-    ],
-    "defaultMode": "auto"
-  },
-  "model": "claude-opus-4-8",
   "env": {
     "CLAUDE_CODE_TMUX_TRUECOLOR": "1"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "defaultMode": "auto"
   },
   "hooks": {
     "SessionStart": [
@@ -19,14 +15,6 @@
             "command": "node \"/home/evertoncosmo/.claude/hooks/caveman-activate.js\"",
             "timeout": 5,
             "statusMessage": "Loading caveman mode..."
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node /home/evertoncosmo/.claude/hooks/context-mode-cache-heal.mjs"
           }
         ]
       }
@@ -53,7 +41,8 @@
     "frontend-design@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "context-mode@context-mode": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "stripe@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -71,6 +60,7 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "tui": "fullscreen",
   "editorMode": "vim",
   "autoCompactEnabled": false,
   "switchModelsOnFlag": false,
