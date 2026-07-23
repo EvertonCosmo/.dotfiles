@@ -6,6 +6,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -42,7 +43,8 @@
     "commit-commands@claude-plugins-official": true,
     "context-mode@context-mode": true,
     "caveman@caveman": true,
-    "stripe@claude-plugins-official": true
+    "stripe@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -59,7 +61,7 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
+  "effortLevel": "low",
   "tui": "fullscreen",
   "editorMode": "vim",
   "autoCompactEnabled": false,
