@@ -153,24 +153,37 @@
 -- }
 
 return {
-	"rebelot/kanagawa.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("kanagawa").setup({
-			transparent = false,
-			terminalColors = true,
-			dim_inactive = false,
-			colors = {
-				theme = {
-					all = {
-						ui = {
-							bg_gutter = "none",
+	{
+		"Aejkatappaja/sora",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+		config = function(_, opts)
+			require("sora").setup(opts)
+			vim.cmd("colorscheme sora")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		enabled = false,
+		priority = 1000,
+		config = function()
+			require("kanagawa").setup({
+				transparent = false,
+				terminalColors = true,
+				dim_inactive = false,
+				colors = {
+					theme = {
+						all = {
+							ui = {
+								bg_gutter = "none",
+							},
 						},
 					},
 				},
-			},
-		})
-		vim.cmd([[colorscheme kanagawa-wave]])
-	end,
+			})
+			vim.cmd([[colorscheme kanagawa-wave]])
+		end,
+	},
 }
