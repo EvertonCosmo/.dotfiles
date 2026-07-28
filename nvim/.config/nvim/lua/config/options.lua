@@ -42,6 +42,7 @@ vim.opt.splitkeep = "screen"
 vim.opt.background = "dark"
 
 vim.opt.wildignore:append({ "*/node_modules/*" })
+
 vim.opt.formatoptions:append({ "r" })
 
 vim.opt.completeopt = "menuone,noselect"

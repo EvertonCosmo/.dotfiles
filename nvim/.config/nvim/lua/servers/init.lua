@@ -9,6 +9,7 @@ local servers = {
   'jsonls',
   'gopls',
   'bashls',
+  'clangd',
   'yamlls',
   'docker_language_server',
   'prismals',
