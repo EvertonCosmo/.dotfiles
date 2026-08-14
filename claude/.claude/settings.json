@@ -18,14 +18,6 @@
             "statusMessage": "Loading caveman mode..."
           }
         ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node /home/evertoncosmo/.claude/hooks/context-mode-cache-heal.mjs"
-          }
-        ]
       }
     ],
     "UserPromptSubmit": [
@@ -52,7 +44,8 @@
     "context-mode@context-mode": true,
     "caveman@caveman": true,
     "stripe@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "mattpocock-skills@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -69,7 +62,7 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "low",
+  "effortLevel": "high",
   "tui": "fullscreen",
   "editorMode": "vim",
   "autoCompactEnabled": false,
