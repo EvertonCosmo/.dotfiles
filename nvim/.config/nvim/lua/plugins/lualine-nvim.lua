@@ -99,7 +99,7 @@ return {
         -- theme = my_lualine_theme,
         -- theme = "gruvbox-material",
         -- theme = "cyberdream",
-        theme = "auto",
+        theme = "sora",
         component_separators = { left = "|", right = "|" },
         section_separators = { left = "|", right = "" },
       },
