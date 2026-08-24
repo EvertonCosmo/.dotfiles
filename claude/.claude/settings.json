@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node /home/evertoncosmo/.claude/hooks/context-mode-cache-heal.mjs"
+            "command": "\"/home/evertoncosmo/.claude/hooks/context-mode-cache-heal.mjs\""
           }
         ]
       }
