@@ -10,6 +10,7 @@
     "defaultMode": "auto"
   },
   "model": "opus",
+  "remoteControlAtStartup": false,
   "hooks": {
     "SessionStart": [
       {
@@ -74,9 +75,15 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "fullscreen",
   "editorMode": "vim",
   "autoCompactEnabled": false,
   "switchModelsOnFlag": false,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "agentPushNotifEnabled": true
 }
