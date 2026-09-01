@@ -35,9 +35,6 @@
     "format": "{id}",
     "format-icons": {
       "special": "󰐃"
-    },
-    "persistent-workspaces": {
-      "*": 5
     }
   },
   "hyprland/submap": {
