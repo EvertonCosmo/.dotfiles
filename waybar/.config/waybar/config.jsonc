@@ -83,7 +83,11 @@
     //   pkill -RTMIN+13 waybar
     // Bar shows the mark only; the numbers live in the tooltip, and the CSS
     // classes below turn the icon up as the fullest window fills.
-    "exec": "claudebar --format '{icon}' --no-color=bar --tooltip-font 'JetBrainsMono Nerd Font Mono, monospace'",
+    // The default mark is a Nerd Font robot; this is the Claude brand glyph
+    // (U+E861), which needs the family pinned since it lives only in Font
+    // Awesome 7 Brands (>= 7.2.0). --icon prepends rather than replacing, and
+    // {icon} always renders the built-in robot, so the format is left empty.
+    "exec": "claudebar --icon \"<span font='Font Awesome 7 Brands'>&#xe861;</span>\" --format '' --no-color=bar --tooltip-font 'JetBrainsMono Nerd Font Mono, monospace'",
     "return-type": "json",
     "interval": 300,
     "signal": 13,
