@@ -60,9 +60,11 @@ case "$iface" in
     ;;
 esac
 
+# A second glyph beside the interface icon read as one unrecognizable block in
+# the bar, so the tunnel shows as a color change (see .vpn in style.css) and a
+# tooltip line instead.
 class="connected"
 if [ -n "$vpn" ]; then
-  text="$text 󰦝"
   tooltip="$tooltip\nVPN: $vpn"
   class="vpn"
 fi
