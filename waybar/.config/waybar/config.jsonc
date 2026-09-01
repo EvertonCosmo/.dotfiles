@@ -13,6 +13,7 @@
     "clock"
   ],
   "modules-right": [
+    "custom/claudebar",
     "custom/gpu",
     "cpu",
     "memory",
@@ -75,6 +76,18 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     }
+  },
+  "custom/claudebar": {
+    // Bar text stays plain so the CSS classes below own the color; the tooltip
+    // keeps claudebar's own gauge. Signal 13 forces a refresh:
+    //   pkill -RTMIN+13 waybar
+    "exec": "claudebar --no-color=bar --tooltip-font 'JetBrainsMono Nerd Font Mono, monospace'",
+    "return-type": "json",
+    "interval": 300,
+    "signal": 13,
+    "tooltip": true,
+    "on-click": "xdg-open https://claude.ai/settings/usage",
+    "on-click-right": "pkill -RTMIN+13 waybar"
   },
   "custom/gpu": {
     "exec": "$HOME/.config/waybar/scripts/gpu.sh",

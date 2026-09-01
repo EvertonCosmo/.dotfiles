@@ -42,6 +42,7 @@ window#waybar.hidden {
 #submap,
 #window,
 #clock,
+#custom-claudebar,
 #custom-gpu,
 #cpu,
 #memory,
@@ -138,6 +139,28 @@ window#waybar.empty #window {
 }
 
 /* ── System stats ─────────────────────────────────────────── */
+
+/* Claude usage: color tracks the fullest limit window (low/mid/high/critical) */
+#custom-claudebar {
+  color: @fg;
+}
+
+#custom-claudebar.low {
+  color: @accent;
+}
+
+#custom-claudebar.mid {
+  color: @yellow;
+}
+
+#custom-claudebar.high {
+  color: @orange;
+}
+
+#custom-claudebar.critical {
+  color: @bg;
+  background-color: @red;
+}
 
 #custom-gpu {
   color: @green;
