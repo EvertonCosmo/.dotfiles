@@ -86,8 +86,10 @@
     "interval": 300,
     "signal": 13,
     "tooltip": true,
-    "on-click": "xdg-open https://claude.ai/settings/usage",
-    "on-click-right": "pkill -RTMIN+13 waybar"
+    // The usage panel is the tooltip, on hover. Left click refreshes it now
+    // instead of waiting out the 300s poll; right click opens the web page.
+    "on-click": "claudebar --refresh >/dev/null 2>&1; pkill -RTMIN+13 waybar",
+    "on-click-right": "xdg-open https://claude.ai/settings/usage"
   },
   "custom/gpu": {
     "exec": "$HOME/.config/waybar/scripts/gpu.sh",
