@@ -1,4 +1,4 @@
-local terminal = "ghossty"
+local terminal = "ghostty"
 
 -- NOTE:migrate to swaysync XD
 local idlehandler = "swayidle -w timeout 300 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'"
