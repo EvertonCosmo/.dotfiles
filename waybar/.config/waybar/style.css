@@ -102,8 +102,15 @@ window#waybar.hidden {
   padding: 0 12px;
 }
 
-#workspaces button.visible {
+/* The active button also carries .visible and, when unoccupied, .empty. Those
+   rules are written to skip it, so they cannot repaint its label the colour of
+   its own background and hide the number. */
+#workspaces button.visible:not(.active) {
   color: @cyan;
+}
+
+#workspaces button.empty:not(.active) {
+  color: @fg-dim;
 }
 
 #workspaces button.special {
@@ -113,10 +120,6 @@ window#waybar.hidden {
 #workspaces button.urgent {
   color: @bg;
   background-color: @red;
-}
-
-#workspaces button.empty {
-  color: @fg-dim;
 }
 
 /* ── Window / submap ──────────────────────────────────────── */
