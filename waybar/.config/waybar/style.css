@@ -1,0 +1,248 @@
+/* Waybar — pill-group layout, Tokyo Night palette */
+
+@define-color bg #000000;
+@define-color bg-alt #1c1c26;
+@define-color fg #c0caf5;
+@define-color fg-dim #9aa3c8;
+@define-color accent #7aa2f7;
+@define-color green #9ece6a;
+@define-color yellow #e0af68;
+@define-color orange #ff9e64;
+@define-color red #f7768e;
+@define-color purple #bb9af7;
+@define-color cyan #7dcfff;
+
+* {
+  font-family:
+    "Annotation Mono",
+    "Iosevka NF",
+    "Symbols Nerd Font",
+    "FontAwesome",
+    "Noto Sans",
+    sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background: @bg;
+  color: @fg;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* ── Pill groups ──────────────────────────────────────────── */
+
+#workspaces,
+#submap,
+#window,
+#clock,
+#custom-gpu,
+#cpu,
+#memory,
+#temperature,
+#disk,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-powerprofile,
+#battery,
+#tray {
+  background-color: @bg-alt;
+  padding: 1px 9px;
+  margin: 3px 1px;
+  border-radius: 8px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 4px;
+}
+
+.modules-right > widget:last-child > #tray {
+  margin-right: 4px;
+}
+
+/* ── Workspaces ───────────────────────────────────────────── */
+
+#workspaces {
+  padding: 1px 3px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  margin: 0 1px;
+  color: @fg-dim;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#workspaces button:hover {
+  background-color: #2a2a3a;
+  color: @fg;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#workspaces button.active {
+  color: @bg;
+  background-color: @accent;
+  padding: 0 12px;
+}
+
+#workspaces button.visible {
+  color: @cyan;
+}
+
+#workspaces button.special {
+  color: @purple;
+}
+
+#workspaces button.urgent {
+  color: @bg;
+  background-color: @red;
+}
+
+#workspaces button.empty {
+  color: @fg-dim;
+}
+
+/* ── Window / submap ──────────────────────────────────────── */
+
+#window {
+  color: @fg-dim;
+  font-weight: normal;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#submap {
+  color: @bg;
+  background-color: @orange;
+}
+
+/* ── Clock ────────────────────────────────────────────────── */
+
+#clock {
+  color: @fg;
+  padding: 1px 14px;
+}
+
+/* ── System stats ─────────────────────────────────────────── */
+
+#custom-gpu {
+  color: @green;
+}
+
+#cpu {
+  color: @accent;
+}
+
+#memory {
+  color: @purple;
+}
+
+#temperature {
+  color: @yellow;
+}
+
+#disk {
+  color: @cyan;
+}
+
+#network {
+  color: @cyan;
+}
+
+#bluetooth {
+  color: @accent;
+}
+
+#pulseaudio {
+  color: @yellow;
+}
+
+#battery {
+  color: @green;
+}
+
+#tray {
+  padding: 1px 7px;
+}
+
+/* ── Power profile: color follows the active profile ──────── */
+
+#custom-powerprofile {
+  color: @fg;
+}
+
+#custom-powerprofile.power-saver,
+#custom-powerprofile.quiet {
+  color: @green;
+}
+
+#custom-powerprofile.balanced {
+  color: @accent;
+}
+
+#custom-powerprofile.performance {
+  color: @orange;
+}
+
+/* ── Warning / critical states ────────────────────────────── */
+
+#cpu.warning,
+#memory.warning,
+#disk.warning,
+#custom-gpu.warning,
+#battery.warning {
+  color: @yellow;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#custom-gpu.critical,
+#temperature.critical {
+  color: @red;
+}
+
+#battery.critical:not(.charging) {
+  color: @bg;
+  background-color: @red;
+  animation: blink 1.2s steps(2, start) infinite;
+}
+
+#network.disconnected,
+#pulseaudio.muted,
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @fg-dim;
+}
+
+@keyframes blink {
+  to {
+    color: @red;
+    background-color: @bg;
+  }
+}
+
+tooltip {
+  background-color: @bg;
+  border: 1px solid @bg-alt;
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @fg;
+  padding: 4px;
+}

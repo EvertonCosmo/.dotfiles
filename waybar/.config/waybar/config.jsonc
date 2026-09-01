@@ -1,0 +1,205 @@
+// vim:ft=jsonc
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "spacing": 0,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/gpu",
+    "cpu",
+    "memory",
+    "temperature",
+    "disk",
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "custom/powerprofile",
+    "battery",
+    "tray"
+  ],
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "show-special": true,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format": "{id}",
+    "format-icons": {
+      "special": "󰐃"
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">󰌌 {}</span>",
+    "tooltip": false
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 60,
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Zen Browser": "󰈹 $1",
+      "(.*) - fish": " $1",
+      "": "󰇥 desktop" // Pretty DUCK :P
+    }
+  },
+  "clock": {
+    "interval": 1,
+    "locale": "en_US.UTF-8",
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃰 {:%a, %d %b %Y  %H:%M:%S}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "right",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'>{}</span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "custom/gpu": {
+    "exec": "$HOME/.config/waybar/scripts/gpu.sh",
+    "return-type": "json",
+    "interval": 5,
+    "tooltip": true,
+    "on-click": "nvidia-smi"
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "󰻠 {usage}%",
+    "tooltip": true,
+    "states": {
+      "warning": 60,
+      "critical": 85
+    }
+  },
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {percentage}%",
+    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    }
+  },
+  "temperature": {
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+    "input-filename": "temp1_input",
+    "interval": 5,
+    "critical-threshold": 85,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "CPU: {temperatureC}°C"
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "format": "󰋊 {percentage_used}%",
+    "tooltip-format": "{used} used of {total} ({percentage_used}%)\nFree: {free}",
+    "states": {
+      "warning": 80,
+      "critical": 92
+    }
+  },
+  "network": {
+    "interval": 5,
+    "format-wifi": "󰖩 {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-linked": "󰈀 no IP",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\n󰇚 {bandwidthDownBytes}  󰕒 {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\n󰇚 {bandwidthDownBytes}  󰕒 {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "nm-connection-editor"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "",
+    "format-off": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "{controller_alias}\n{status}",
+    "tooltip-format-connected": "{controller_alias}\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%)",
+    "on-click": "bluetoothctl power $([ \"$(bluetoothctl show | grep -c 'Powered: yes')\" = 1 ] && echo off || echo on)"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon}󰂯 {volume}%",
+    "format-muted": "󰝟",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "scroll-step": 5,
+    "tooltip-format": "{desc}\n{volume}%",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "custom/powerprofile": {
+    "exec": "$HOME/.config/waybar/scripts/powerprofile.sh",
+    "return-type": "json",
+    "interval": 5,
+    "tooltip": true,
+    "on-click": "$HOME/.config/waybar/scripts/powerprofile.sh toggle",
+    "on-click-right": "$HOME/.config/waybar/scripts/powerprofile.sh set balanced",
+    "on-scroll-up": "$HOME/.config/waybar/scripts/powerprofile.sh set performance",
+    "on-scroll-down": "$HOME/.config/waybar/scripts/powerprofile.sh set power-saver"
+  },
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁽",
+      "󰁿",
+      "󰂁",
+      "󰁹"
+    ],
+    "tooltip-format": "{timeTo}\n{power}W · Health {health}%"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  }
+}

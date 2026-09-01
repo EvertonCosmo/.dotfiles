@@ -1,0 +1,8 @@
+# Fish writes fish_variables atomically via randomly-named temp files and does
+# not always clean them up; only the real file should be tracked.
+fish/.config/fish/fish_variables?*
+
+# Editor and manual backups
+*.bak
+*.bak-*
+*~
