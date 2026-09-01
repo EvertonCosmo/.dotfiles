@@ -87,7 +87,7 @@
     // (U+E861), which needs the family pinned since it lives only in Font
     // Awesome 7 Brands (>= 7.2.0). --icon prepends rather than replacing, and
     // {icon} always renders the built-in robot, so the format is left empty.
-    "exec": "claudebar --icon \"<span font='Font Awesome 7 Brands'>&#xe861;</span>\" --format '' --no-color=bar --tooltip-font 'JetBrainsMono Nerd Font Mono, monospace'",
+    "exec": "claudebar --icon \"<span font='Font Awesome 7 Brands'>&#xe861;</span>\" --format '' --no-color=bar --color-low '#90c8a0' --color-mid '#d4b878' --color-high '#d0a888' --color-critical '#d0909c' --tooltip-font 'JetBrainsMono Nerd Font Mono, monospace'",
     "return-type": "json",
     "interval": 300,
     "signal": 13,

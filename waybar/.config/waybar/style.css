@@ -1,16 +1,22 @@
-/* Waybar — pill-group layout, Tokyo Night palette */
+/* Waybar — pill-group layout, Sora palette
+   Colors taken from ~/.config/ghostty/themes/sora so the bar, the terminal and
+   Neovim stay in step. The bar ground stays true black rather than Sora's
+   #0e1018 canvas, which is what this setup asked for; swap @bg for #0e1018 to
+   match the terminal exactly. */
 
 @define-color bg #000000;
-@define-color bg-alt #1c1c26;
-@define-color fg #c0caf5;
-@define-color fg-dim #9aa3c8;
-@define-color accent #7aa2f7;
-@define-color green #9ece6a;
-@define-color yellow #e0af68;
-@define-color orange #ff9e64;
-@define-color red #f7768e;
-@define-color purple #bb9af7;
-@define-color cyan #7dcfff;
+@define-color bg-alt #1e2430;
+@define-color bg-hover #2a3140;
+@define-color fg #c8d0e0;
+@define-color fg-dim #586478;
+@define-color accent #80c8e0;
+@define-color green #90c8a0;
+@define-color yellow #d4b878;
+@define-color orange #d0a888;
+@define-color red #d0909c;
+@define-color purple #b0a0d8;
+@define-color cyan #80c8e0;
+@define-color blue #8898b8;
 
 * {
   font-family:
@@ -84,7 +90,7 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-  background-color: #2a2a3a;
+  background-color: @bg-hover;
   color: @fg;
   box-shadow: none;
   text-shadow: none;
@@ -149,7 +155,7 @@ window#waybar.empty #window {
 
 /* Idle: no pill, just the mark, so it reads as a glyph and not an empty box */
 #custom-claudebar.low {
-  color: #5c6484;
+  color: @fg-dim;
   background-color: transparent;
 }
 
@@ -171,7 +177,7 @@ window#waybar.empty #window {
 }
 
 #cpu {
-  color: @accent;
+  color: @blue;
 }
 
 #memory {
