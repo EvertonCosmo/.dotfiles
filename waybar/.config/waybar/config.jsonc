@@ -92,10 +92,12 @@
     "interval": 300,
     "signal": 13,
     "tooltip": true,
-    // The usage panel is the tooltip, on hover. Left click refreshes it now
-    // instead of waiting out the 300s poll; right click opens the web page.
-    "on-click": "claudebar --refresh >/dev/null 2>&1; pkill -RTMIN+13 waybar",
-    "on-click-right": "xdg-open https://claude.ai/settings/usage"
+    // Left click opens the report in a floating terminal: the tooltip holds the
+    // same content but GTK delays a hover by ~500ms and that is not tunable.
+    // Right click forces a fresh fetch ahead of the 300s poll.
+    "on-click": "$HOME/.config/waybar/scripts/claude-panel.sh",
+    "on-click-right": "claudebar --refresh >/dev/null 2>&1; pkill -RTMIN+13 waybar",
+    "on-click-middle": "xdg-open https://claude.ai/settings/usage"
   },
   "custom/gpu": {
     "exec": "$HOME/.config/waybar/scripts/gpu.sh",
