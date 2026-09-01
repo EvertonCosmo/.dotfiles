@@ -81,7 +81,9 @@
     // Bar text stays plain so the CSS classes below own the color; the tooltip
     // keeps claudebar's own gauge. Signal 13 forces a refresh:
     //   pkill -RTMIN+13 waybar
-    "exec": "claudebar --no-color=bar --tooltip-font 'JetBrainsMono Nerd Font Mono, monospace'",
+    // Bar shows the mark only; the numbers live in the tooltip, and the CSS
+    // classes below turn the icon up as the fullest window fills.
+    "exec": "claudebar --format '{icon}' --no-color=bar --tooltip-font 'JetBrainsMono Nerd Font Mono, monospace'",
     "return-type": "json",
     "interval": 300,
     "signal": 13,

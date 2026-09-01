@@ -140,13 +140,15 @@ window#waybar.empty #window {
 
 /* ── System stats ─────────────────────────────────────────── */
 
-/* Claude usage: color tracks the fullest limit window (low/mid/high/critical) */
+/* Claude usage: an icon that stays out of the way until the quota fills.
+   Dim while there is headroom, warmer as the fullest window climbs. */
 #custom-claudebar {
-  color: @fg;
+  color: @fg-dim;
+  padding: 1px 7px;
 }
 
 #custom-claudebar.low {
-  color: @accent;
+  color: #4a4f6b;
 }
 
 #custom-claudebar.mid {
