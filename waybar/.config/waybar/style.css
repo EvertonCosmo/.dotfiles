@@ -48,7 +48,7 @@ window#waybar.hidden {
 #memory,
 #temperature,
 #disk,
-#network,
+#custom-network,
 #bluetooth,
 #pulseaudio,
 #custom-powerprofile,
@@ -147,8 +147,10 @@ window#waybar.empty #window {
   padding: 1px 7px;
 }
 
+/* Idle: no pill, just the mark, so it reads as a glyph and not an empty box */
 #custom-claudebar.low {
-  color: #4a4f6b;
+  color: #5c6484;
+  background-color: transparent;
 }
 
 #custom-claudebar.mid {
@@ -184,8 +186,12 @@ window#waybar.empty #window {
   color: @cyan;
 }
 
-#network {
+#custom-network {
   color: @cyan;
+}
+
+#custom-network.vpn {
+  color: @green;
 }
 
 #bluetooth {
@@ -247,7 +253,7 @@ window#waybar.empty #window {
   animation: blink 1.2s steps(2, start) infinite;
 }
 
-#network.disconnected,
+#custom-network.disconnected,
 #pulseaudio.muted,
 #bluetooth.off,
 #bluetooth.disabled {

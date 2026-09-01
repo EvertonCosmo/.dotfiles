@@ -19,7 +19,7 @@
     "memory",
     "temperature",
     "disk",
-    "network",
+    "custom/network",
     "bluetooth",
     "pulseaudio",
     "custom/powerprofile",
@@ -125,9 +125,9 @@
     "critical-threshold": 85,
     "format": "{icon} {temperatureC}°C",
     "format-icons": [
-      "",
-      "",
-      ""
+      "󰔏",
+      "󰔏",
+      "󰸁"
     ],
     "tooltip-format": "CPU: {temperatureC}°C"
   },
@@ -141,15 +141,11 @@
       "critical": 92
     }
   },
-  "network": {
+  "custom/network": {
+    "exec": "$HOME/.config/waybar/scripts/network.sh",
+    "return-type": "json",
     "interval": 5,
-    "format-wifi": "󰖩 {signalStrength}%",
-    "format-ethernet": "󰈀",
-    "format-linked": "󰈀 no IP",
-    "format-disconnected": "󰖪",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\n󰇚 {bandwidthDownBytes}  󰕒 {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\n󰇚 {bandwidthDownBytes}  󰕒 {bandwidthUpBytes}",
-    "tooltip-format-disconnected": "Disconnected",
+    "tooltip": true,
     "on-click": "nm-connection-editor"
   },
   "bluetooth": {
