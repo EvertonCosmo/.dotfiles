@@ -38,6 +38,7 @@ hl.config({
 		font_family = "Annotation Mono",
 		vrr = 1,
 		focus_on_activate = true,
+		["col.splash"] = "rgba(1a1a1acc)",
 	},
 	render = {
 		direct_scanout = true,
