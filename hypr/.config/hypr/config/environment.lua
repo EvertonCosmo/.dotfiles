@@ -9,6 +9,11 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_CURSOR_SIZE", "24")
 
 hl.env("GTK_THEME", "Adwaita")
+
+-- Input method
+-- Dead keys AULA F75
+hl.env("GTK_IM_MODULE", "simple")
+
 -- hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 
 -- XDG Specifications

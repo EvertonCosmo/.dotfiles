@@ -5,7 +5,7 @@ vim.lsp.config('*', {
 
 local servers = {
   'lua_ls',
-  'ts_ls',
+  'tsc',
   'jsonls',
   'gopls',
   'bashls',

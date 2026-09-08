@@ -10,7 +10,6 @@
     "defaultMode": "auto"
   },
   "model": "opus",
-  "remoteControlAtStartup": false,
   "hooks": {
     "SessionStart": [
       {
@@ -84,6 +83,7 @@
   "editorMode": "vim",
   "autoCompactEnabled": false,
   "switchModelsOnFlag": false,
-  "skipAutoPermissionPrompt": true,
-  "agentPushNotifEnabled": true
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

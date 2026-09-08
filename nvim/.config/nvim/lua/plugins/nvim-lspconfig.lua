@@ -16,7 +16,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"stylua",
-					"ts_ls",
+					"tsc",
 					"bashls",
 					"cssls",
 					"jsonls",
