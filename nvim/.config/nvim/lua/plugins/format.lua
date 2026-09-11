@@ -47,6 +47,7 @@ return {
 					c = { "clang_format" },
 					dockerfile = { "dockerfmt" },
 					cpp = { "clang-format" },
+					cmake = { "gersemi" },
 					markdown = { "mdformat" },
 					css = { "biome", "prettier", "stylelint" },
 					less = { "prettier", "stylelint" },

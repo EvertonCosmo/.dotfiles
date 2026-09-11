@@ -10,6 +10,7 @@ local servers = {
   'gopls',
   'bashls',
   'clangd',
+  'neocmakelsp',
   'yamlls',
   'docker_language_server',
   'prismals',
