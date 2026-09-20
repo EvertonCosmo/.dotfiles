@@ -6,11 +6,21 @@ return function()
 		root_markers = { { ".luarc.json", ".luarc.jsonc" }, ".git" },
 		settings = {
 			Lua = {
+				runtime = {
+					version = "LuaJIT",
+				},
 				diagnostics = {
 					globals = { "vim" },
 				},
 				workspace = {
 					checkThirdParty = false,
+					library = {
+						vim.env.VIMRUNTIME .. "/lua",
+						"${3rd}/luv/library",
+					},
+				},
+				completion = {
+					callSnippet = "Replace",
 				},
 				telemetry = {
 					enable = false,

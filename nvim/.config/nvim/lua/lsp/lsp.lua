@@ -73,7 +73,7 @@ M.on_attach = function(event)
     require("pretty_hover").hover()
   end, opts)
 
-  keymapset("n", "<leader>rs", ":LspRestart<CR>", opts)
+  -- keymapset("n", "<leader>rs", ":LspRestart<CR>", opts)
 
   keymapset("n", "gR", "<cmd>FzfLua lsp_references<CR>", opts)
   keymapset("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", opts)

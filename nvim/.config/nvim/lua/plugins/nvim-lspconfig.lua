@@ -6,7 +6,6 @@ return {
 			"mason-org/mason-lspconfig.nvim",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
 			"hrsh7th/cmp-nvim-lsp",
-			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
 			require("utils.diagnostics").setup()
