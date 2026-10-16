@@ -29,6 +29,7 @@ return {
 					"tailwindcss",
 					"pylsp",
 				},
+				automatic_enable = { exclude = { "kotlin_lsp", "jdtls" } },
 			})
 
 			require("servers")

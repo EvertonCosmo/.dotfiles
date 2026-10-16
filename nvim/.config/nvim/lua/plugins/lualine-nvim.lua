@@ -134,7 +134,7 @@ return {
           -- { "encoding",},
           -- { "fileformat" },
           { "filetype" },
-          { "copilot" },
+          -- { "copilot" }, // F copilot 
           -- require("utils.lualine-util").cmp_source("supermaven", "󰰣"),
           -- {
           -- 	lsp_status_all,

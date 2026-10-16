@@ -18,7 +18,7 @@ local servers = {
 	"terraformls",
 	"tailwindcss",
 	"pylsp",
-	"kotlin_lsp",
+	-- kotlin_lsp is started by kotlin.nvim 
 }
 
 for _, server in ipairs(servers) do
