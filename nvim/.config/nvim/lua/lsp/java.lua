@@ -7,12 +7,16 @@ function M.setup()
   local config_path = jdtls_base .. "/config_linux"
   local launcher_path = vim.fn.glob(jdtls_base .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
+  -- jdtls itself needs Java 21+ to run; projects can still target older runtimes below.
+  local java21 = "/usr/lib/jvm/java-21-openjdk/bin/java"
+  local java_bin = vim.fn.executable(java21) == 1 and java21 or "java"
+
   -- Create workspace directory
   vim.fn.mkdir(workspace_path, "p")
 
   local config = {
     cmd = {
-      "java",
+      java_bin,
       "-Declipse.application=org.eclipse.jdt.ls.core.id1",
       "-Dosgi.bundles.defaultStartLevel=4",
       "-Declipse.product=org.eclipse.jdt.ls.core.product",
